@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Portfolio</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!--
+        Links to the Bootstrap 5.3.0 CSS framework. Bootstrap provides pre-built components and responsive grid systems
+        to help with faster and easier web development.
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!--
+        Links to Font Awesome 6.4.0 CSS, which provides a library of scalable vector icons that can be customized with CSS.
+    -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!--
+        Links to the Animate On Scroll (AOS) CSS. AOS is a library that allows you to animate elements as you scroll down.
+    -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!--
+        The `preconnect` hint tells the browser to establish an early connection to `fonts.googleapis.com`.
+        This helps fetch Google Fonts faster, improving perceived page load speed.
+    -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!--
+        Preconnect to `fonts.gstatic.com` which serves the actual font files. `crossorigin` is required for font requests.
+    -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!--
+        Links to the "Inter" font from Google Fonts, importing various weights (300 to 700).
+        `display=swap` tells the browser to use a fallback font while the Inter font is loading, then swap it in.
+    -->
+</head>
+<body class="dark-mode">
+    <!--
+        The <body> tag contains all the contents of an HTML document, such as text, hyperlinks, images, tables, lists, etc.
+        `class="dark-mode"` applies the dark theme by default.
+    -->
+
+    <header data-header>
+        <!--
+            The <header> element represents introductory content, typically a group of navigational aids.
+            `data-header` is a custom data attribute used by JavaScript to select this element.
+        -->
+        <div class="logo">CODEVO <span>&lt;/&gt;</span></div>
+        <!--
+            The logo of the portfolio, styled with a combination of text and a code-like span.
+        -->
+        <div class="d-flex align-items-center">
+            <!--
+                A Bootstrap utility class for flex display and aligning items to the center.
+            -->
+            <nav class="nav-items">
+                <!--
+                    The <nav> element represents a section of a page that provides navigation links.
+                    `nav-items` is a custom class for styling the navigation links.
+                -->
+                <a th:href="@{/}">Home</a>
+                <a th:href="@{/about}">About</a>
+                <a th:href="@{/projects}">Projects</a>
+                <a th:href="@{/skills}">Skills</a>
+                <a th:href="@{/resume}">Resume</a>
+                <a th:href="@{/contact}">Contact</a>
+                </nav>
+            <div class="navbar-actions">
+                <select name="language" id="lang">
+                    <!--
+                        A dropdown menu for language selection.
+                        `name="language"` for form submission.
+                        `id="lang"` for JavaScript targeting.
+                    -->
+                    <option value="en" selected>En</option>
+                    <option value="es">Es</option>
+                    <option value="hi">HI</option>
+                    <option value="de">DE</option>
+                    <option value="fr">FR</option>
+                    </select>
+            </div>
+
+            <button class="theme-btn" aria-label="Change Theme" title="Change Theme" id="themeToggle">
+                <!--
+                    Button to toggle between dark and light themes.
+                    `aria-label` and `title` provide accessibility and hover text.
+                    `id="themeToggle"` for JavaScript targeting.
+                -->
+                <span class="icon"><i class="fas fa-moon"></i></span>
+                <!--
+                    A span to contain the theme icon (moon for dark mode, sun for light mode).
+                    `fas fa-moon` is a Font Awesome icon for a moon.
+                -->
+            </button>
+
+            <button class="mobile-menu-button" aria-label="Open Mobile Menu" id="mobileMenuButton">
+                <!--
+                    Button to open the mobile navigation menu. Hidden on desktop, visible on mobile.
+                    `aria-label` for accessibility.
+                    `id="mobileMenuButton"` for JavaScript targeting.
+                -->
+                <i class="fas fa-bars"></i>
+                </button>
+        </div>
+    </header>
+
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+        <!--
+            This div acts as an overlay for the mobile navigation menu.
+            Initially hidden and slides in from the right when activated.
+            `id="mobileNavOverlay"` for JavaScript targeting.
+        -->
+                <a th:href="@{/}">Home</a>
+                <a th:href="@{/about}">About</a>
+                <a th:href="@{/projects}">Projects</a>
+                <a th:href="@{/skills}">Skills</a>
+                <a th:href="@{/resume}">Resume</a>
+                <a th:href="@{/contact}">Contact</a>
+        </div>
+ 
+    <section id="resume" data-aos="fade-up">
+        <!--
+            The Resume section.
+            `id="resume"` is the target for navigation links.
+            `data-aos="fade-up"` applies a fade-up animation.
+        -->
+        <!-- <div class="section-heading-main">
+            <h2>My Resume</h2>
+            </div> -->
+		<div class="section-heading-main">
+				MY <span class="highlight">&lt;RESUME /&gt;</span>
+		</div>
+        <div class="resume-content">
+            <div class="resume-section-card full-width" data-aos="fade-up">
+                <h3 class="resume-section-title">
+                    <i class="fas fa-user-tie"></i> Career Summary
+                    </h3>
+                <p class="resume-text">
+                    Driven Software Engineer with 1.5 years of experience in crafting reliable and maintainable
+                    software systems. Proven track record of
+                    improving performance, enhancing user experience, and contributing to cross-functional
+                    initiatives. Brings a strong foundation in
+                    software architecture, a keen eye for detail, and a continuous drive to contribute to impactful and
+                    forward-thinking projects.
+                </p>
+                </div>
+
+            <div class="resume-section-card" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="resume-section-title">
+                    <i class="fas fa-briefcase"></i> Experience
+                    </h3>
+                <div class="resume-item">
+                    <div class="resume-item-header">
+                        <h4 class="resume-item-title">Software Engineer</h4>
+                        <span class="resume-item-duration">November 2023 - Present</span>
+                        </div>
+                    <p class="resume-item-subtitle">HCL Technologies Pvt. Ltd. | Lucknow, India</p>
+                    <div class="resume-item-description">
+                        <ul>
+                            <li>Spearheaded the development of RESTful APIs using Spring Boot, ensuring high scalability
+                                and performance to meet growing business requirements.</li>
+                            <li>Collaborated closely with the design and front-end teams to enhance UI/UX by addressing
+                                front-end bugs and improving the user interface, resulting in increased customer
+                                satisfaction and engagement.</li>
+                            <li>Participated in cross-functional code reviews, ensuring best practices, code quality, and
+                                alignment with project goals, contributing to the overall improvement of the system
+                                architecture.</li>
+                            <li>Utilized debugging tools and version control systems (Git) to track and resolve software
+                                bugs, maintaining a focus on continuous platform improvement and minimizing downtime.
+                            </li>
+                            <li>Enhanced application security by implementing and refining authentication and
+                                authorization mechanisms, ensuring data protection across services.</li>
+                            <li>Collaborated with senior engineers to integrate back-end services with databases like
+                                MySQL and PostgreSQL, ensuring optimized data access and storage.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resume-section-card" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="resume-section-title">
+                    <i class="fas fa-graduation-cap"></i> Education
+                    </h3>
+                <div class="resume-item">
+                    <div class="resume-item-header">
+                        <h4 class="resume-item-title">Bachelor of Technology in Computer Science and Engineering</h4>
+                        <span class="resume-item-duration">July 2019 - September 2023</span>
+                        </div>
+                    <p class="resume-item-subtitle">Dr. APJ Abdul Kalam Technical University, Lucknow</p>
+                    <p class="resume-text">CGPA: 8.3/10</p>
+                    </div>
+            </div>
+
+            <div class="resume-section-card full-width" data-aos="fade-up" data-aos-delay="300">
+                <h3 class="resume-section-title">
+                    <i class="fas fa-code"></i> Technical Skills
+                    </h3>
+                <div class="resume-skills-grid">
+                    <div class="skill-category-block">
+                        <h4 class="skill-category-title">Programming Languages</h4>
+                        <ul class="skill-list">
+                            <li>Java</li>
+                            <li>JavaScript</li>
+                            <li>SQL</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category-block">
+                        <h4 class="skill-category-title">Frameworks/Modules</h4>
+                        <ul class="skill-list">
+                            <li>Spring</li>
+                            <li>Spring Boot</li>
+                            <li>Hibernate</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category-block">
+                        <h4 class="skill-category-title">Databases</h4>
+                        <ul class="skill-list">
+                            <li>MySQL</li>
+                            <li>PostgreSQL</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category-block">
+                        <h4 class="skill-category-title">Tools & Technologies</h4>
+                        <ul class="skill-list">
+                            <li>Git</li>
+                            <li>Maven</li>
+                            <li>AWS</li>
+                            <li>GitHub</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category-block">
+                        <h4 class="skill-category-title">Web Technologies</h4>
+                        <ul class="skill-list">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>RESTful APIs</li>
+                            <li>JSON</li>
+                            <li>XML</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category-block">
+                        <h4 class="skill-category-title">Soft Skills</h4>
+                        <ul class="skill-list">
+                            <li>Problem-Solving</li>
+                            <li>Collaboration & Communication</li>
+                            <li>Leadership</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resume-section-card full-width" data-aos="fade-up" data-aos-delay="400">
+                <h3 class="resume-section-title">
+                    <i class="fas fa-laptop-code"></i> Project
+                    </h3>
+                <div class="resume-item">
+                    <div class="resume-item-header">
+                        <h4 class="resume-item-title">Pharmacy Management Billing Software</h4>
+                        <a href="#" class="project-link-btn secondary" target="_blank"
+                            style="font-size: 0.9rem; padding: 0.4rem 0.8rem;">
+                            <i class="fab fa-github"></i> Code
+                            </a>
+                    </div>
+                    <p class="resume-item-subtitle">Instructor: Prof. Pankaj Mishra</p>
+                    <p class="resume-project-tech"><strong>Technologies:</strong> Java, Java Swing, JDBC, MySQL, JSP,
+                        Servlets, Tomcat Server</p>
+                    <div class="resume-item-description">
+                        <ul>
+                            <li>Developed a Pharmacy Billing Software focusing on the Payment Module using Java to
+                                streamline the billing process and improve transaction efficiency.</li>
+                            <li>Designed and implemented a user-friendly interface with Java Swing and AWT, enabling
+                                smooth navigation for billing and inventory management.</li>
+                            <li>Integrated JDBC for reliable database connectivity and performed operations such as
+                                invoice generation, transaction logging, and stock updates.</li>
+                            <li>Built the server-side logic using JSP and Servlets, hosted on Apache Tomcat, to handle
+                                form submissions and communication between the front-end and database.</li>
+                            <li>Utilized MySQL to securely store billing data and provide real-time access to inventory
+                                details, ensuring data consistency and quick retrieval.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resume-section-card full-width" data-aos="fade-up" data-aos-delay="500">
+                <h3 class="resume-section-title">
+                    <i class="fas fa-trophy"></i> Achievement
+                    </h3>
+                <p class="resume-achievement">
+                    Awarded Employee of the Year at HCL Technologies, recognizing consistent performance, collaboration,
+                    and contributions to software development tasks.
+                </p>
+                </div>
+        </div>
+
+        <div class="download-resume-container" data-aos="fade-up" data-aos-delay="600">
+            <a href="ABDUL_BARI_RESUME.pdf" download="ABDUL_BARI_RESUME.pdf" class="download-resume-btn">
+                <!--
+                    Link to download the resume PDF.
+                    `download` attribute suggests a filename for download.
+                -->
+                <i class="fas fa-download"></i> Download Resume
+                </a>
+        </div>
+    </section>
+
+    <button class="back-to-top" id="backToTopBtn" aria-label="Back to top">
+        <!--
+            Button to scroll back to the top of the page.
+            Initially hidden and shown when scrolling down.
+            `aria-label` for accessibility.
+            `id="backToTopBtn"` for JavaScript targeting.
+        -->
+        <i class="fas fa-arrow-up"></i>
+        </button>
+    
+    	<footer class="footer">
+		<!--
+            The <footer> element represents a footer for its nearest sectioning content or sectioning root element.
+            `class="footer"` for styling.
+        -->
+		<div class="footer-content">
+			<div class="footer-logo">
+				CODEVO <span>&lt;/&gt;</span>
+			</div>
+			<div class="footer-social-icons">
+				<a href="https://www.hackerrank.com/yourprofile" target="_blank"
+					aria-label="HackerRank"><i class="fab fa-hackerrank"></i></a> <a
+					href="https://linkedin.com/in/abdul11ab"
+					target="_blank" aria-label="LinkedIn"><i
+					class="fab fa-linkedin"></i></a> <a
+					href="https://github.com/keep11kd" target="_blank"
+					aria-label="GitHub"><i class="fab fa-github"></i></a> <a
+					href="https://www.youtube.com/@TheSolutionHub686" target="_blank"
+					aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+			</div>
+			<p class="footer-copyright">© 2024 Abdul Bari. All rights
+				reserved.</p>
+		</div>
+	</footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+   
+<script src="/js/script.js"></script>
+</body>
+</html>

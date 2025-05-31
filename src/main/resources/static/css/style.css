@@ -1,0 +1,3818 @@
+ /* Style for Global and Utility Classes Started */
+        /* Smooth scrolling for the entire page */
+        html {
+            scroll-behavior: smooth;
+            /*
+                Enables smooth scrolling when navigating to anchor links (e.g., clicking a menu item
+                that links to a section on the same page).
+            */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Applies the 'Inter' font as the primary font for the entire body, with generic sans-serif as a fallback. */
+            margin: 0;
+            /* Removes default browser margin from the body, ensuring content starts at the very edge of the viewport. */
+            overflow-x: hidden;
+            /* Prevents horizontal scrolling, which can occur on small screens if content overflows. */
+        }
+
+        /* Root variables for consistent theming */
+        :root {
+            /*
+                The `:root` pseudo-class represents the <html> element.
+                CSS variables (custom properties) defined here are globally accessible throughout the document.
+                This makes it easy to manage and change themes or common values.
+            */
+            /* Base colors */
+            --bg-dark: #121212;
+            /* Dark background color for dark mode. */
+            --bg-light: #ffffff;
+            /* Light background color for light mode. */
+            --text-dark: #ffffff;
+            /* Light text color for dark mode. */
+            --text-light: #000000;
+            /* Dark text color for light mode. */
+            --accent-color: #0dcaf0;
+            /* Primary accent color (a shade of cyan/blue). */
+            --engineer-gradient: linear-gradient(90deg, #ff8a00, #e52e71);
+            /* Gradient for "Engineer" text (orange to pink/red). */
+            --transition-speed: 0.3s;
+            /* Standard transition duration. */
+            --transition-easing: ease-in-out;
+            /* Standard transition timing function. */
+
+            /* Social media colors */
+            --hackerrank-color: #1cb842;
+            /* HackerRank green. */
+            --linkedin-color: #0077b5;
+            /* LinkedIn blue. */
+            --github-color: #FFA500;
+            /* GitHub orange (custom for this design). */
+            --youtube-color: #CD201F;
+            /* YouTube red. */
+
+            /* Separator colors */
+            --separator-color-dark: rgba(255, 255, 255, 0.1);
+            /* Subtle white separator for dark mode. */
+            --separator-color-light: rgba(0, 0, 0, 0.1);
+            /* Subtle black separator for light mode. */
+
+            /* About Me text colors */
+            --about-text-color-dark: var(--text-dark);
+            /* About section text color (inherits from --text-dark). */
+            --about-text-color-light: var(--text-light);
+            /* About section text color (inherits from --text-light). */
+            --about-title-color-dark: rgba(255, 255, 255, 0.7);
+            /* About section title color for dark mode (subtle white). */
+            --about-title-color-light: rgba(0, 0, 0, 0.6);
+            /* About section title color for light mode (subtle black). */
+
+            /* Project colors */
+            --project-card-bg-dark: var(--bg-secondary);
+            /* Project card background for dark mode. */
+            --project-card-bg-light: var(--bg-secondary);
+            /* Project card background for light mode. */
+            --project-card-shadow-dark: var(--card-shadow);
+            /* Project card shadow for dark mode. */
+            --project-card-shadow-light: var(--card-shadow);
+            /* Project card shadow for light mode. */
+            --project-text-color-dark: var(--text-dark);
+            /* Project text color for dark mode. */
+            --project-text-color-light: var(--text-light);
+            /* Project text color for light mode. */
+            --project-link-bg-dark: var(--accent-color);
+            /* Project link button background for dark mode. */
+            --project-link-bg-light: var(--accent-color);
+            /* Project link button background for light mode. */
+            --project-link-text-dark: white;
+            /* Project link button text for dark mode. */
+            --project-link-text-light: white;
+            /* Project link button text for light mode. */
+            --project-link-border-dark: var(--accent-color);
+            /* Project link button border for dark mode. */
+            --project-link-border-light: var(--accent-color);
+            /* Project link button border for light mode. */
+
+            /* Original portfolio colors (some might be overridden by dark/light mode specifics) */
+            --raw-seinna: hsl(24, 74%, 58%);
+            /* A specific hue-saturation-lightness color. */
+            --bg-primary: hsl(0, 0%, 90%);
+            /* Primary background color (light gray). */
+            --bg-secondary: hsl(0, 0%, 100%);
+            /* Secondary background color (white). */
+            --color-primary: hsl(0, 0%, 12%);
+            /* Primary text color (dark gray). */
+            --color-secondary: hsl(0, 0%, 37%);
+            /* Secondary text color (medium gray). */
+            --white: hsl(0, 0%, 100%);
+            /* Pure white. */
+            --shadow-1: 10px 10px 40px hsla(0, 0%, 0%, 0.1);
+            /* Default shadow for cards/elements. */
+            --transition-1: 0.25s ease-in-out;
+            /* Another transition speed variable. */
+            --radius-4: 4px;
+            /* Small border-radius. */
+            --radius-12: 12px;
+            /* Larger border-radius. */
+            --fw-700: 700;
+            /* Font weight for bold text. */
+        }
+
+        /* Dark Mode styles */
+        body.dark-mode {
+            background-color: #141d26;
+            /* Sets a dark blue-gray background for the entire page. */
+            color: var(--text-dark);
+            /* Sets default text color to white for dark mode. */
+            --bg-dark: #141d26;
+            /* Overrides --bg-dark for consistency. */
+            --bg-secondary: #1e2a36;
+            /* Sets a slightly lighter dark background for secondary elements like cards. */
+            --card-shadow: hsla(0, 0%, 0%, 0.4);
+            /* Darker shadow for cards in dark mode. */
+            --shadow-1: 10px 10px 40px var(--card-shadow);
+            /* Applies the darker card shadow to --shadow-1. */
+            --bg-primary: #141d26;
+            /* Sets primary background for dark mode. */
+            --color-primary: var(--text-dark);
+            /* Sets primary text color for dark mode. */
+            --separator-shadow-dark: rgba(0, 0, 0, 0.3);
+            /* Darker shadow for separators in dark mode. */
+        }
+
+        /* Light Mode styles */
+        body.light-mode {
+            background-color: var(--bg-light);
+            /* Sets the light background color. */
+            color: var(--text-light);
+            /* Sets default text color to black for light mode. */
+            --bg-secondary: hsl(0, 0%, 100%);
+            /* Sets white background for secondary elements. */
+            --card-shadow: hsla(0, 0%, 0%, 0.1);
+            /* Lighter shadow for cards in light mode. */
+            --shadow-1: 10px 10px 40px var(--card-shadow);
+            /* Applies the lighter card shadow to --shadow-1. */
+            --color-primary: var(--text-light);
+            /* Sets primary text color for light mode. */
+            --separator-shadow-light: rgba(0, 0, 0, 0.1);
+            /* Lighter shadow for separators in light mode. */
+        }
+
+        /* Style for Global and Utility Classes Ends */
+
+
+        /* Style for Header Section Started */
+        header {
+            position: fixed;
+            /* Makes the header stick to the top of the viewport even when scrolling. */
+            top: 0;
+            /* Positions the header at the very top. */
+            left: 0;
+            /* Positions the header at the very left. */
+            width: 100%;
+            /* Makes the header span the full width of the viewport. */
+            z-index: 1000;
+            /* Ensures the header stays on top of other content. */
+            display: flex;
+            /* Uses flexbox for layout of header children. */
+            justify-content: space-between;
+            /* Distributes space between logo and navigation/actions. */
+            align-items: center;
+            /* Vertically aligns items in the center. */
+            padding: 0.75rem 2rem;
+            /* Adds padding to the top/bottom and sides. */
+            background: transparent;
+            /* Initially transparent background. */
+            transition: background var(--transition-speed) var(--transition-easing),
+                box-shadow var(--transition-speed) var(--transition-easing),
+                padding var(--transition-speed) var(--transition-easing),
+                backdrop-filter var(--transition-speed) var(--transition-easing);
+            /* Smooth transition for background, shadow, padding, and backdrop-filter changes. */
+        }
+
+        header.active {
+            padding-block: 0.75rem;
+            /* Adjusts vertical padding when header is active (scrolled). */
+            background: var(--bg-secondary);
+            /* Changes background to secondary background color when active. */
+            box-shadow: var(--shadow-1);
+            /* Applies a shadow when active. */
+            backdrop-filter: blur(10px);
+            /* Applies a frosted glass blur effect when active. */
+        }
+
+        body.light-mode header.active {
+            backdrop-filter: blur(5px);
+            /* Reduces blur effect for light mode for better readability. */
+        }
+
+        header:not(.active) .nav-items a,
+        header:not(.active) .navbar-actions select {
+            color: var(--text-dark);
+            /* Sets text color to dark mode text color when header is not active (transparent background). */
+        }
+
+        header:not(.active) .theme-btn {
+            background: rgba(255, 255, 255, 0.1);
+            /* Subtle white background for theme button when header is not active. */
+        }
+
+        header:not(.active) .theme-btn .icon {
+            color: white;
+            /* White icon color for theme button when header is not active. */
+            background-color: transparent;
+            /* Transparent background for the icon itself. */
+        }
+
+        body.light-mode header.active .navbar-actions select {
+            color: var(--text-light);
+            /* Sets language selector text color to light mode text color when active. */
+        }
+
+        .logo {
+            font-weight: bold;
+            /* Bold font for the logo text. */
+            font-size: 24px;
+            /* Font size for the logo. */
+            color: var(--accent-color);
+            /* Applies the accent color to the main logo text. */
+        }
+
+        .logo span {
+            color: #ff6f61;
+            /* Specific color for the "/>" part of the logo. */
+            font-family: monospace;
+            /* Monospace font for the code-like part of the logo. */
+            font-size: 28px;
+            /* Slightly larger font size for the code-like part. */
+        }
+
+        .nav-items {
+            display: flex;
+            /* Uses flexbox for navigation links. */
+            align-items: center;
+            /* Vertically aligns navigation links. */
+            gap: 1.5rem;
+            /* Space between navigation links. */
+            margin-left: 2rem;
+            /* Margin to the left of the navigation items. */
+        }
+
+        .nav-items a {
+            color: inherit;
+            /* Inherits color from its parent (header). */
+            text-decoration: none;
+            /* Removes underline from links. */
+            font-weight: 500;
+            /* Medium font weight. */
+            position: relative;
+            /* Needed for the `::after` pseudo-element for the underline effect. */
+            transition: color var(--transition-speed) var(--transition-easing),
+                font-weight var(--transition-speed) var(--transition-easing),
+                transform var(--transition-speed) var(--transition-easing);
+            /* Smooth transition for color, font-weight, and transform changes. */
+            outline: none;
+            /* Removes the outline that appears on focus for accessibility, handled by other visual cues. */
+        }
+
+        .nav-items a:hover {
+            color: var(--accent-color);
+            /* Changes link color to accent color on hover. */
+            transform: scale(1.05) translateY(-2px);
+            /* Slightly scales up and moves up on hover. */
+            text-shadow: 0 0 8px rgba(13, 202, 240, 0.5);
+            /* Adds a subtle glow effect on hover. */
+        }
+
+        .nav-items a:hover::after {
+            content: '';
+            /* Creates an empty content for the pseudo-element. */
+            position: absolute;
+            /* Positions the pseudo-element relative to its parent `a`. */
+            left: 0;
+            /* Starts from the left edge of the link. */
+            bottom: -4px;
+            /* Positions it slightly below the link text. */
+            height: 2px;
+            /* Height of the underline. */
+            width: 100%;
+            /* Full width underline on hover. */
+            background-color: var(--accent-color);
+            /* Accent color for the underline. */
+            transition: width var(--transition-speed) var(--transition-easing),
+                background-color var(--transition-speed) var(--transition-easing);
+            /* Smooth transition for width and background color. */
+        }
+
+        .nav-items a.active-nav {
+            color: var(--accent-color);
+            /* Accent color for the currently active navigation link. */
+            font-weight: 700;
+            /* Bold font weight for the active link. */
+        }
+
+        .nav-items a.active-nav::after {
+            content: '';
+            /* Creates an empty content for the pseudo-element. */
+            position: absolute;
+            /* Positions the pseudo-element relative to its parent `a`. */
+            left: 0;
+            /* Starts from the left edge of the link. */
+            bottom: -4px;
+            /* Positions it slightly below the link text. */
+            height: 2px;
+            /* Height of the underline. */
+            width: 100%;
+            /* Full width underline for the active link. */
+            background-color: var(--accent-color);
+            /* Accent color for the underline. */
+            transition: width var(--transition-speed) var(--transition-easing),
+                background-color var(--transition-speed) var(--transition-easing);
+            /* Smooth transition for width and background color. */
+        }
+
+        .theme-btn {
+            padding: 4px;
+            /* Padding inside the button. */
+            width: 48px;
+            /* Fixed width for the button. */
+            background: var(--bg-light);
+            /* Light background by default. */
+            border-radius: 100px;
+            /* Makes the button fully rounded (pill shape). */
+            transition: 0.25s ease-in-out;
+            /* Smooth transition for changes. */
+            border: none;
+            /* Removes default button border. */
+            position: relative;
+            /* Needed for positioning the icon inside. */
+            overflow: hidden;
+            /* Hides any overflow from the icon when it moves. */
+            margin-left: 1rem;
+            /* Margin to the left of the button. */
+            cursor: pointer;
+            /* Changes cursor to a pointer on hover, indicating it's clickable. */
+            outline: none;
+            /* Removes the outline that appears on focus. */
+        }
+
+        .theme-btn .icon {
+            position: relative;
+            /* Allows positioning within the button. */
+            left: 0;
+            /* Initial position to the left. */
+            width: 20px;
+            /* Fixed width for the icon container. */
+            height: 20px;
+            /* Fixed height for the icon container. */
+            border-radius: 50%;
+            /* Makes the icon container circular. */
+            transition: 0.25s ease-in-out;
+            /* Smooth transition for movement. */
+            display: flex;
+            /* Uses flexbox to center the icon. */
+            align-items: center;
+            /* Vertically centers the icon. */
+            justify-content: center;
+            /* Horizontally centers the icon. */
+            background-color: var(--accent-color);
+            /* Accent color background for the icon. */
+            color: white;
+            /* White color for the icon itself. */
+            font-size: 12px;
+            /* Font size for the icon. */
+        }
+
+        body.light-mode .theme-btn {
+            background: #0b1621;
+            /* Darker background for the theme button in light mode. */
+        }
+
+        body.light-mode .theme-btn .icon {
+            color: #ef8e38;
+            /* Orange color for the sun icon in light mode. */
+            background-color: transparent;
+            /* Transparent background for the icon in light mode. */
+        }
+
+        body.light-mode .theme-btn:hover .icon {
+            background-color: rgba(255, 255, 255, 0.1);
+            /* Subtle white background on hover for the icon in light mode. */
+        }
+
+        .theme-btn.active .icon {
+            left: 20px;
+            /* Moves the icon to the right when the theme button is active (light mode). */
+        }
+
+        .navbar-actions {
+            margin-left: 2.5rem;
+            /* Margin to the left of the language selector. */
+        }
+
+        .navbar-actions select {
+            color: var(--color-primary);
+            /* Text color for the select element. */
+            width: 45px;
+            /* Fixed width for the select element. */
+            background: none;
+            /* Removes default background. */
+            border: none;
+            /* Removes default border. */
+            font: inherit;
+            /* Inherits font styles from its parent. */
+            outline: none;
+            /* Removes the outline that appears on focus. */
+            cursor: pointer;
+            /* Changes cursor to a pointer on hover. */
+        }
+
+        .navbar-actions option {
+            background: var(--bg-primary);
+            /* Background color for dropdown options. */
+            color: var(--color-primary);
+            /* Text color for dropdown options. */
+        }
+
+        .language-toggle {
+            width: 80px;
+            /* Fixed width for the language toggle (if it were a separate element). */
+            font-size: 0.75rem;
+            /* Smaller font size. */
+            text-align: center;
+            /* Centers text. */
+        }
+
+        /* Mobile menu button */
+        .mobile-menu-button {
+            display: none;
+            /* Hidden by default on larger screens. */
+            background: none;
+            /* No background. */
+            border: none;
+            /* No border. */
+            color: inherit;
+            /* Inherits color from parent. */
+            font-size: 1.8rem;
+            /* Large font size for the icon. */
+            cursor: pointer;
+            /* Changes cursor to pointer. */
+            margin-left: 1rem;
+            /* Margin to the left. */
+            z-index: 1001;
+            /* Ensures it's above the header. */
+            outline: none;
+            /* Removes outline on focus. */
+        }
+
+        /* Mobile navigation overlay */
+        .mobile-nav-overlay {
+            position: fixed;
+            /* Fixed position to cover the entire viewport. */
+            top: 0;
+            /* Positions at the top. */
+            left: 0;
+            /* Positions at the left. */
+            width: 100%;
+            /* Full width. */
+            height: 100%;
+            /* Full height. */
+            background-color: var(--bg-secondary);
+            /* Uses secondary background color. */
+            z-index: 999;
+            /* Below the mobile menu button but above other content. */
+            display: flex;
+            /* Uses flexbox for internal layout. */
+            flex-direction: column;
+            /* Stacks items vertically. */
+            align-items: center;
+            /* Centers items horizontally. */
+            justify-content: center;
+            /* Centers items vertically. */
+            gap: 2rem;
+            /* Space between navigation links. */
+            opacity: 0;
+            /* Initially transparent. */
+            visibility: hidden;
+            /* Initially hidden from screen readers and interaction. */
+            transform: translateX(100%);
+            /* Moves it off-screen to the right. */
+            transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+            /* Smooth transition for showing/hiding. */
+        }
+
+        .mobile-nav-overlay.active {
+            opacity: 1;
+            /* Fully opaque when active. */
+            visibility: visible;
+            /* Visible when active. */
+            transform: translateX(0);
+            /* Slides into view from the right. */
+        }
+
+        .mobile-nav-overlay a {
+            color: var(--text-light);
+            /* Default text color for links. */
+            font-size: 1.5rem;
+            /* Larger font size for mobile links. */
+            text-decoration: none;
+            /* Removes underline. */
+            padding: 0.5rem 0;
+            /* Vertical padding. */
+            transition: color 0.3s ease, transform 0.3s ease;
+            /* Smooth transition for color and transform. */
+            outline: none;
+            /* Removes outline on focus. */
+        }
+
+        body.dark-mode .mobile-nav-overlay a {
+            color: var(--text-dark);
+            /* Dark text color for links in dark mode. */
+        }
+
+        .mobile-nav-overlay a:hover {
+            color: #0dcaf0;
+            /* Accent color on hover. */
+            transform: scale(1.05);
+            /* Slightly scales up on hover. */
+            text-shadow: 0 0 8px rgba(13, 202, 240, 0.5);
+            /* Subtle glow on hover. */
+        }
+
+        .mobile-nav-overlay a:hover::after {
+            content: '';
+            /* Creates empty content for pseudo-element. */
+            position: absolute;
+            /* Positions relative to parent. */
+            left: 0;
+            /* Starts from left. */
+            bottom: -5px;
+            /* Slightly below. */
+            width: 100%;
+            /* Full width. */
+            height: 2px;
+            /* Height of underline. */
+            background-color: #0dcaf0;
+            /* Accent color underline. */
+            transition: width 0.3s ease;
+            /* Smooth width transition. */
+        }
+
+        .mobile-nav-overlay a:hover::after {
+            background: linear-gradient(to right, #ff8a00, #e52e71);
+            /* Gradient underline on hover. */
+        }
+
+        /* Style for Header Section Ends */
+
+
+        /* Style for Banner Section Started */
+        .banner {
+            height: 100vh;
+            /* Makes the banner take up the full height of the viewport. */
+            background: url('../img/homeBanner.png') no-repeat center center/cover;
+            /*
+                Sets a placeholder background image.
+                `no-repeat` prevents image repetition.
+                `center center` centers the image.
+                `/cover` scales the image to cover the entire container.
+            */
+            position: relative;
+            /* Allows absolute positioning of child elements (like social icons, scroll-down). */
+            display: flex;
+            /* Uses flexbox for layout. */
+            align-items: center;
+            /* Vertically centers content. */
+            justify-content: space-between;
+            /* Distributes space between intro text and social icons. */
+            padding: 2rem;
+            /* Adds padding around the content. */
+            color: white;
+            /* Sets default text color to white. */
+        }
+
+        .intro-text {
+            max-width: 50%;
+            /* Limits the width of the introductory text. */
+            z-index: 2;
+            /* Ensures it's above other elements if there's an overlay. */
+        }
+
+        .intro-text h2 {
+            font-size: 2.5rem;
+            /* Large font size for the main heading. */
+            margin-bottom: 1rem;
+            /* Space below the heading. */
+        }
+
+        .intro-text h2 span {
+            background: var(--engineer-gradient);
+            /* Applies the engineer gradient as background. */
+            -webkit-background-clip: text;
+            /* Clips the background to the shape of the text (for WebKit browsers). */
+            -webkit-text-fill-color: transparent;
+            /* Makes the text transparent so the background gradient shows through. */
+        }
+
+        .typed-code {
+            font-family: 'Courier New', Courier, monospace;
+            /* Monospace font for the typing effect. */
+            font-size: 1.2rem;
+            /* Font size for the typed code. */
+            color: #0dcaf0;
+            /* Accent color for the typed code. */
+            white-space: pre-wrap;
+            /* Preserves whitespace and wraps text. */
+            margin: 1rem 0 1.5rem 0;
+            /* Margins around the typed code. */
+            line-height: 1.4;
+            /* Line height for readability. */
+            user-select: none;
+            /* Prevents text from being selected by the user. */
+        }
+
+        .cursor {
+            display: inline-block;
+            /* Allows setting width/height and keeps it inline with text. */
+            background-color: #0dcaf0;
+            /* Accent color for the typing cursor. */
+            width: 10px;
+            /* Width of the cursor. */
+            margin-left: 2px;
+            /* Small margin to separate from text. */
+            animation: blink 1s steps(2, start) infinite;
+            /* Applies the blinking animation. */
+            vertical-align: bottom;
+            /* Aligns the cursor to the bottom of the text. */
+            height: 1.2rem;
+            /* Height of the cursor. */
+        }
+
+        @keyframes blink {
+            /* Defines the blinking animation for the cursor. */
+            0%,
+            50% {
+                opacity: 1;
+                /* Fully visible. */
+            }
+
+            50.1%,
+            100% {
+                opacity: 0;
+                /* Fully transparent. */
+            }
+        }
+
+        /* Explore Projects button */
+        .explore-btn {
+            padding: 0.7rem 1.4rem;
+            /* Padding inside the button. */
+            border: 2px solid var(--accent-color);
+            /* Accent colored border. */
+            border-radius: 8px;
+            /* Rounded corners. */
+            text-decoration: none;
+            /* Removes underline. */
+            font-size: 0.95rem;
+            /* Font size. */
+            font-weight: 600;
+            /* Semi-bold font. */
+            transition: background-color 0.4s var(--transition-easing),
+                color 0.4s var(--transition-easing),
+                transform 0.2s ease,
+                box-shadow 0.3s ease;
+            /* Smooth transitions for various properties. */
+            position: relative;
+            /* Needed for the `::before` pseudo-element. */
+            overflow: hidden;
+            /* Hides overflow for the slide-in effect. */
+            z-index: 1;
+            /* Ensures button is above its pseudo-element. */
+            display: inline-flex;
+            /* Uses inline-flex to align icon and text. */
+            align-items: center;
+            /* Vertically centers content. */
+            justify-content: center;
+            /* Horizontally centers content. */
+            gap: 0.5rem;
+            /* Space between icon and text. */
+            background-color: transparent;
+            /* Initially transparent background. */
+            color: var(--accent-color);
+            /* Accent color text. */
+            cursor: pointer;
+            /* Changes cursor to pointer. */
+            outline: none;
+            /* Removes outline on focus. */
+        }
+
+        .explore-btn i {
+            transition: transform 0.2s ease;
+            /* Smooth transition for icon movement. */
+        }
+
+        .explore-btn:hover i {
+            transform: translateX(5px);
+            /* Moves icon to the right on hover. */
+        }
+
+        .explore-btn::before {
+            content: '';
+            /* Creates empty content for pseudo-element. */
+            position: absolute;
+            /* Positions relative to parent. */
+            top: 0;
+            /* Starts from top. */
+            left: 0;
+            /* Starts from left. */
+            width: 100%;
+            /* Full width. */
+            height: 100%;
+            /* Full height. */
+            background-color: var(--accent-color);
+            /* Accent color background. */
+            transform: translateX(-100%);
+            /* Initially off-screen to the left. */
+            transition: transform 0.4s var(--transition-easing);
+            /* Smooth slide-in transition. */
+            z-index: -1;
+            /* Positions behind the button content. */
+        }
+
+        .explore-btn:hover::before {
+            transform: translateX(0);
+            /* Slides the background into view on hover. */
+        }
+
+        .explore-btn:hover {
+            background-color: transparent;
+            /* Background becomes transparent on hover (already handled by ::before). */
+            color: white;
+            /* Text color changes to white on hover. */
+            transform: translateY(-2px);
+            /* Slightly moves up on hover. */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            /* Adds a subtle shadow on hover. */
+        }
+
+        body.light-mode .explore-btn {
+            background-color: transparent;
+            /* Transparent background in light mode. */
+            color: var(--accent-color);
+            /* Accent color text in light mode. */
+            border-color: var(--accent-color);
+            /* Accent color border in light mode. */
+        }
+
+        body.light-mode .explore-btn:hover {
+            background-color: transparent;
+            /* Transparent background on hover in light mode. */
+            color: white;
+            /* White text on hover in light mode. */
+        }
+
+        .scroll-down {
+            position: absolute;
+            /* Positions relative to the banner. */
+            bottom: 1rem;
+            /* 1rem from the bottom. */
+            left: 50%;
+            /* Horizontally centered. */
+            transform: translateX(-50%);
+            /* Adjusts for exact horizontal centering. */
+            font-size: 2rem;
+            /* Large icon size. */
+            color: white;
+            /* White color. */
+            cursor: pointer;
+            /* Changes cursor to pointer. */
+            animation: bounce 2s infinite;
+            /* Applies a bouncing animation. */
+        }
+
+        @keyframes bounce {
+            /* Defines the bouncing animation. */
+            0%,
+            100% {
+                transform: translate(-50%, 0);
+                /* Starts and ends at original position. */
+            }
+
+            50% {
+                transform: translate(-50%, -10px);
+                /* Moves up 10px at midpoint. */
+            }
+        }
+
+        /* Social Icons Styles (Banner) */
+        .social-icons {
+            position: absolute;
+            /* Positions relative to the banner. */
+            right: 1rem;
+            /* 1rem from the right. */
+            top: 50%;
+            /* Vertically centered. */
+            transform: translateY(-50%);
+            /* Adjusts for exact vertical centering. */
+            display: flex;
+            /* Uses flexbox. */
+            flex-direction: column;
+            /* Stacks icons vertically. */
+            gap: 1.2rem;
+            /* Space between icons. */
+            z-index: 2;
+            /* Ensures icons are above other elements if there's an overlay. */
+        }
+
+        .social-icons a {
+            color: white;
+            /* White color for icons. */
+            font-size: 1.5rem;
+            /* Icon size. */
+            transition: transform 0.3s ease, color 0.3s ease;
+            /* Smooth transition for transform and color. */
+            outline: none;
+            /* Removes outline on focus. */
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.3);
+            /* Scales up on hover. */
+            color: var(--accent-color);
+            /* Changes color to accent color on hover. */
+        }
+  /* End Social Icons Styles (Banner) */
+  
+  
+   /* All section title style starts here */
+   
+   
+.section-heading-main {
+            font-weight: bold;
+            /* Bold font for the logo text. */
+            font-size: 24px;
+            /* Font size for the logo. */
+            color: var(--accent-color);
+            /* Applies the accent color to the main logo text. */
+        }
+
+.section-heading-main span {
+            color: #ff6f61;
+            /* Specific color for the "/>" part of the logo. */
+            font-family: monospace;
+            /* Monospace font for the code-like part of the logo. */
+            font-size: 28px;
+            /* Slightly larger font size for the code-like part. */
+        }
+/* .section-heading-main .highlight {
+    color: #f06292; Color for the opening and closing brackets
+}
+ */
+/* .section-heading-main .highlight::before {
+    content: "<";
+    color: #00bcd4; Color for the opening angle bracket
+}
+
+.section-heading-main .highlight::after {
+    content: "/>";
+    color: #f06292; Color for the forward slash and closing angle bracket
+} */
+
+.section-heading-main .highlight span {
+    color: linear-gradient(90deg, #ff8a00, #e52e71); /* Color for "Me" within the brackets */
+    font-style: italic;
+    font:monospace;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* All Section Title Style ends here */
+
+       
+
+        .back-to-top {
+            position: fixed;
+            /* Fixed position relative to the viewport. */
+            bottom: 20px;
+            /* 20px from the bottom. */
+            right: 20px;
+            /* 20px from the right. */
+            background-color: var(--accent-color);
+            /* Accent color background. */
+            color: white;
+            /* White text/icon. */
+            border: none;
+            /* No border. */
+            padding: 0.5rem 1rem;
+            /* Padding inside. */
+            border-radius: 50%;
+            /* Makes it circular. */
+            font-size: 1.25rem;
+            /* Icon size. */
+            cursor: pointer;
+            /* Changes cursor to pointer. */
+            z-index: 999;
+            /* Ensures it's above most content. */
+            display: none;
+            /* Hidden by default, shown via JavaScript. */
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            /* Smooth transition for opacity and transform. */
+            outline: none;
+            /* Removes outline on focus. */
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            /* Lifts the button slightly on hover. */
+        }
+
+        section {
+            padding: 4rem 2rem;
+            /* Adds general padding to all sections. */
+            /* Add some top padding to sections to prevent content from being hidden by the fixed header */
+            padding-top: calc(4rem + 70px);
+            /* Adjusts top padding to account for the fixed header's height, preventing content overlap. */
+        }
+
+        /* Style for Banner Section Ends */
+
+
+        /* Style for About Section Started */
+        .about-container {
+            display: flex;
+            /* Uses flexbox for layout of profile card and about text. */
+            align-items: flex-start;
+            /* Aligns items to the top of the flex container. */
+            flex-wrap: wrap;
+            /* Allows items to wrap to the next line on smaller screens. */
+            justify-content: center;
+            /* Centers items horizontally when they wrap. */
+        }
+
+        .profile-card {
+            background-color: var(--bg-secondary);
+            /* Uses secondary background color. */
+            border-radius: 8px;
+            /* Rounded corners. */
+            border: 2px solid transparent;
+            /* Added transparent border, which changes on hover. */
+            box-shadow: var(--shadow-1);
+            /* Applies a shadow. */
+            padding: 2rem;
+            /* Padding inside the card. */
+            text-align: center;
+            /* Centers text content. */
+            width: 300px;
+            /* Fixed width for the card. */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+            /* Smooth transitions for transform, shadow, and border color. */
+            position: relative;
+            /* Allows positioning of pseudo-elements or children. */
+            overflow: hidden;
+            /* Hides any overflowing content. */
+            flex-shrink: 0;
+            /* Prevents the card from shrinking below its defined width. */
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+            /* Lifts the card slightly on hover. */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            /* More pronounced shadow on hover. */
+            border-color: var(--accent-color);
+            /* Changes border color to accent color on hover. */
+        }
+
+        .profile-image {
+            width: 150px;
+            /* Fixed width for the image. */
+            height: 150px;
+            /* Fixed height for the image. */
+            border-radius: 50%;
+            /* Makes the image circular. */
+            object-fit: cover;
+            /* Ensures the image covers the area without distortion. */
+            margin-bottom: 1rem;
+            /* Space below the image. */
+        }
+
+        .profile-card h2 {
+            background: var(--engineer-gradient);
+            /* Applies the engineer gradient as background. */
+            -webkit-background-clip: text;
+            /* Clips background to text. */
+            -webkit-text-fill-color: transparent;
+            /* Makes text transparent to show gradient. */
+            transition: all 0.3s ease-in-out;
+            /* Smooth transition for all properties. */
+            font-size: 1.5rem;
+            /* Font size. */
+            text-transform: uppercase;
+            /* Uppercase text. */
+            letter-spacing: 0.1em;
+            /* Adds letter spacing. */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            /* Adds a subtle text shadow. */
+        }
+
+        body.light-mode .profile-card h2 {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            /* Lighter text shadow in light mode. */
+        }
+
+
+        .profile-card:hover h2 {
+            background: linear-gradient(120deg, #e52e71, #ff8a00);
+            /* Changes gradient direction and colors on hover. */
+            -webkit-background-clip: text;
+            /* Clips background to text. */
+            -webkit-text-fill-color: transparent;
+            /* Makes text transparent. */
+            transform: scale(1.02);
+            /* Slightly scales up the heading on hover. */
+        }
+
+        /* Explicitly set color for paragraphs in profile card */
+        .profile-card p {
+            font-style: italic;
+            /* Italic font style. */
+            font-size: 12px;
+            line-height: 1.6;
+            /* Line height for readability. */
+            margin-bottom: 1rem;
+            /* Space below paragraphs. */
+            color: var(--about-text-color-dark);
+            /* Text color for dark mode. */
+            transition: color 0.3s ease;
+            /* Smooth transition for color. */
+            
+        }
+
+        body.light-mode .profile-card p {
+            color: var(--text-light);
+            /* Sets text color for paragraphs in light mode. */
+            font-style: italic;
+            /* Italic font style. */
+        }
+
+        .social-links {
+            display: flex;
+            /* Uses flexbox for social links. */
+            justify-content: center;
+            /* Centers icons horizontally. */
+            gap: 1rem;
+            /* Space between icons. */
+            margin-top: 1rem;
+            /* Space above social links. */
+        }
+
+        .social-links a {
+            font-size: 1.5rem;
+            /* Icon size. */
+            position: relative;
+            /* Needed for tooltip. */
+            overflow: hidden;
+            /* Hides overflowing content for tooltip. */
+            display: inline-flex;
+            /* Uses inline-flex to center icon. */
+            align-items: center;
+            /* Vertically centers icon. */
+            justify-content: center;
+            /* Horizontally centers icon. */
+            width: 2em;
+            /* Fixed width. */
+            height: 2em;
+            /* Fixed height. */
+            border-radius: 50%;
+            /* Makes it circular. */
+            text-decoration: none;
+            /* Removes underline. */
+            color: inherit;
+            /* Inherits color from parent. */
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            /* Smooth transitions. */
+            outline: none;
+            /* Removes outline on focus. */
+        }
+
+        /* Specific colors for social icons on hover */
+        .social-links a[aria-label="Hacker Rank"] {
+            color: var(--hackerrank-color);
+            /* HackerRank green. */
+        }
+
+        .social-links a[aria-label="LinkedIn"] {
+            color: var(--linkedin-color);
+            /* LinkedIn blue. */
+        }
+
+        .social-links a[aria-label="GitHub"] {
+            color: var(--github-color);
+            /* GitHub orange. */
+        }
+
+        .social-links a[aria-label="YouTube"] {
+            color: var(--youtube-color);
+            /* YouTube red. */
+        }
+
+        .social-links a i {
+            transition: transform 0.3s ease;
+            /* Smooth transition for icon movement. */
+        }
+
+        .social-links a:hover i {
+            animation: shake 0.5s cubic-bezier(.36, .07, .19, .97) both;
+            /* Applies a shake animation on hover. */
+            transform-origin: center center;
+            /* Sets the origin of the transform for the shake. */
+        }
+
+        @keyframes shake {
+            /* Defines the shake animation. */
+            10%,
+            90% {
+                transform: translate3d(-1px, 0, 0);
+            }
+
+            20%,
+            80% {
+                transform: translate3d(2px, 0, 0);
+            }
+
+            30%,
+            50%,
+            70% {
+                transform: translate3d(-4px, 0, 0);
+            }
+
+            40%,
+            60% {
+                transform: translate3d(4px, 0, 0);
+            }
+        }
+
+        .social-links a::before {
+            content: attr(aria-label);
+            /* Uses the `aria-label` attribute as content for the tooltip. */
+            position: absolute;
+            /* Positions relative to the link. */
+            bottom: -1.5em;
+            /* Initially positioned below the icon. */
+            left: 50%;
+            /* Horizontally centered. */
+            transform: translateX(-50%);
+            /* Adjusts for exact horizontal centering. */
+            font-size: 0.7em;
+            /* Smaller font size for tooltip. */
+            white-space: nowrap;
+            /* Prevents text from wrapping. */
+            opacity: 0;
+            /* Initially transparent. */
+            transition: bottom 0.3s ease, opacity 0.3s ease;
+            /* Smooth transition for showing tooltip. */
+            color: var(--text-dark);
+            /* Text color for tooltip. */
+            background-color: var(--bg-secondary);
+            /* Background color for tooltip. */
+            padding: 0.2em 0.5em;
+            /* Padding for tooltip. */
+            border-radius: 4px;
+            /* Rounded corners for tooltip. */
+            z-index: 10;
+            /* Ensures tooltip is above other content. */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            /* Subtle shadow for tooltip. */
+        }
+
+        .social-links a:hover::before {
+            bottom: -2.5em;
+            /* Moves tooltip further up on hover. */
+            opacity: 1;
+            /* Makes tooltip fully visible on hover. */
+        }
+
+        /* Light mode adjustments for social link text */
+        body.light-mode .social-links a::before {
+            color: var(--text-light);
+            /* Light text color for tooltip in light mode. */
+            background-color: var(--bg-secondary);
+            /* Secondary background for tooltip in light mode. */
+        }
+
+        /* Removed separator-container styles as it's removed from HTML */
+        .about-me-text {
+            flex: 1;
+            /* Allows the text column to grow and take available space. */
+            min-width: 300px;
+            /* Minimum width before wrapping. */
+            text-align: left;
+            /* Left-aligns text. */
+            margin-left: 3rem;
+            /* Margin to the left of the text column. */
+            display: flex;
+            /* Uses flexbox for internal layout. */
+            flex-direction: column;
+            /* Stacks items vertically. */
+            justify-content: flex-end;
+            /* Aligns content to the bottom (useful if profile card is taller). */
+            height: auto;
+            /* Auto height. */
+            padding-top: 50px;
+            /* Adds padding to the top. */
+        }
+
+        .about-me-text p {
+            font-style: italic;
+            /* Italic font style. */
+            line-height: 1.6;
+            /* Line height for readability. */
+            margin-bottom: 1rem;
+            /* Space below paragraphs. */
+            color: var(--about-text-color-dark);
+            /* Text color for dark mode. */
+            transition: color 0.3s ease;
+            /* Smooth transition for color. */
+        }
+
+        body.light-mode .about-me-text p {
+            color: var(--text-light);
+            /* Text color for light mode. */
+        }
+
+        .about-buttons {
+            margin-top: 2rem;
+            /* Space above buttons. */
+            text-align: center;
+            /* Centers buttons. */
+        }
+
+        .download-cv,
+        .hire-me {
+            padding: 0.75rem 1.5rem;
+            /* Padding inside buttons. */
+            border: none;
+            /* Removes default border. */
+            border-radius: 4px;
+            /* Rounded corners. */
+            cursor: pointer;
+            /* Changes cursor to pointer. */
+            font-size: 1rem;
+            /* Font size. */
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            /* Smooth transitions. */
+            outline: none;
+            /* Removes outline on focus. */
+        }
+
+        .download-cv {
+            background-color: transparent;
+            /* Transparent background. */
+            color: var(--accent-color);
+            /* Accent color text. */
+            border: 2px solid var(--accent-color);
+            /* Accent color border. */
+            margin-right: 1rem;
+            /* Space to the right. */
+        }
+
+        .hire-me {
+            background-color: var(--accent-color);
+            /* Accent color background. */
+            color: white;
+            /* White text. */
+        }
+
+        .download-cv:hover {
+            background-color: var(--accent-color);
+            /* Fills with accent color on hover. */
+            color: white;
+            /* Changes text color to white on hover. */
+            border: 2px solid var(--accent-color);
+            /* Keeps accent color border. */
+            transform: translateY(-2px);
+            /* Lifts slightly on hover. */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            /* Adds shadow on hover. */
+        }
+
+        .hire-me:hover {
+            background-color: transparent;
+            /* Becomes transparent on hover. */
+            color: var(--accent-color);
+            /* Changes text color to accent color on hover. */
+            border: 2px solid var(--accent-color);
+            /* Adds accent color border on hover. */
+            transform: translateY(-2px);
+            /* Lifts slightly on hover. */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            /* Adds shadow on hover. */
+        }
+
+        /* Style for About Section Ends */
+
+
+        /* Style for Projects Section Started */
+        .project-hidden {
+            display: none;
+            /* Hides elements with this class (used for projects beyond initial visible count). */
+        }
+
+        .projects-header {
+            text-align: center;
+            /* Centers text. */
+            margin-bottom: 3rem;
+            /* Space below header. */
+        }
+
+        .projects-header h3 {
+            font-size: 2.5rem;
+            /* Large font size. */
+            background: var(--engineer-gradient);
+            /* Applies gradient background. */
+            -webkit-background-clip: text;
+            /* Clips background to text. */
+            -webkit-text-fill-color: transparent;
+            /* Makes text transparent. */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            /* Adds text shadow. */
+            margin-bottom: 1rem;
+            /* Space below heading. */
+        }
+
+        body.light-mode .projects-header h3 {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            /* Lighter text shadow in light mode. */
+        }
+
+        .projects-grid {
+            display: grid;
+            /* Uses CSS Grid for layout. */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            /*
+                Creates responsive columns:
+                `repeat(auto-fit, ...)` creates as many columns as fit.
+                `minmax(300px, 1fr)` ensures columns are at least 300px wide and grow to fill available space.
+            */
+            gap: 2rem;
+            /* Space between grid items. */
+            justify-content: center;
+            /* Centers grid items horizontally. */
+            align-items: stretch;
+            /* Stretches grid items to fill the height of their row. */
+        }
+
+        /* Project Card New Styles */
+        .project-card {
+            background-color: var(--bg-secondary);
+            /* Secondary background color. */
+            border-radius: 12px;
+            /* Rounded corners. */
+            box-shadow: var(--shadow-1);
+            /* Applies a shadow. */
+            padding: 1.5rem;
+            /* Padding inside the card. */
+            text-align: center;
+            /* Centers text. */
+            transition: transform 0.4s var(--transition-easing), box-shadow 0.4s var(--transition-easing);
+            /* Smooth transitions for transform and shadow. */
+            position: relative;
+            /* Allows positioning of children. */
+            overflow: hidden;
+            /* Hides overflowing content. */
+            display: flex;
+            /* Uses flexbox for internal layout. */
+            flex-direction: column;
+            /* Stacks content vertically. */
+            justify-content: space-between;
+            /* Distributes space between top and bottom content. */
+        }
+
+        body.light-mode .project-card {
+            background-color: var(--bg-secondary);
+            /* Secondary background in light mode. */
+            box-shadow: var(--shadow-1);
+            /* Shadow in light mode. */
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            /* Lifts the card more on hover. */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            /* More pronounced shadow on hover. */
+        }
+
+        .project-image-container {
+            position: relative;
+            /* Allows positioning of overlay. */
+            width: 100%;
+            /* Full width of parent. */
+            height: 200px;
+            /* Fixed height. */
+            border-radius: 8px;
+            /* Rounded corners. */
+            overflow: hidden;
+            /* Hides overflowing image on zoom. */
+            margin-bottom: 1rem;
+            /* Space below image. */
+        }
+
+        .project-image {
+            width: 100%;
+            /* Full width. */
+            height: 100%;
+            /* Full height. */
+            object-fit: cover;
+            /* Ensures image covers container. */
+            transition: transform 0.5s var(--transition-easing);
+            /* Smooth transition for zoom effect. */
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.1);
+            /* Zooms in the image on hover. */
+        }
+
+        .project-image-overlay {
+            position: absolute;
+            /* Positions relative to image container. */
+            top: 0;
+            /* Starts from top. */
+            left: 0;
+            /* Starts from left. */
+            width: 100%;
+            /* Full width. */
+            height: 100%;
+            /* Full height. */
+            background: rgba(0, 0, 0, 0.4);
+            /* Semi-transparent black overlay. */
+            opacity: 0;
+            /* Initially transparent. */
+            transition: opacity 0.5s var(--transition-easing);
+            /* Smooth transition for opacity. */
+            border-radius: 8px;
+            /* Rounded corners. */
+        }
+
+        .project-card:hover .project-image-overlay {
+            opacity: 1;
+            /* Makes overlay fully visible on hover. */
+        }
+
+        .project-card h4 {
+            font-size: 1.75rem;
+            /* Font size for project title. */
+            background: var(--engineer-gradient);
+            /* Applies gradient background. */
+            -webkit-background-clip: text;
+            /* Clips background to text. */
+            -webkit-text-fill-color: transparent;
+            /* Makes text transparent. */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            /* Adds text shadow. */
+            margin-bottom: 0.75rem;
+            /* Space below title. */
+        }
+
+        body.light-mode .project-card h4 {
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            /* Lighter text shadow in light mode. */
+        }
+
+        .project-card p {
+            font-size: 0.95rem;
+            /* Font size for project description. */
+            line-height: 1.5;
+            /* Line height for readability. */
+            color: var(--project-text-color-dark);
+            /* Text color for dark mode. */
+            margin-bottom: 1.5rem;
+            /* Space below description. */
+            flex-grow: 1;
+            /* Allows paragraph to take up available vertical space. */
+        }
+
+        body.light-mode .project-card p {
+            color: var(--project-text-color-light);
+            /* Text color for light mode. */
+        }
+
+        .project-links {
+            margin-top: 1rem;
+            /* Space above links. */
+            display: flex;
+            /* Uses flexbox. */
+            justify-content: center;
+            /* Centers links horizontally. */
+            gap: 1rem;
+            /* Space between links. */
+        }
+
+        .project-link-btn {
+            padding: 0.7rem 1.4rem;
+            /* Padding inside button. */
+            border: 2px solid var(--accent-color);
+            /* Accent color border. */
+            border-radius: 8px;
+            /* Rounded corners. */
+            text-decoration: none;
+            /* Removes underline. */
+            font-size: 0.95rem;
+            /* Font size. */
+            font-weight: 600;
+            /* Semi-bold font. */
+            transition: background-color 0.4s var(--transition-easing),
+                color 0.4s var(--transition-easing),
+                transform 0.2s ease,
+                box-shadow 0.3s ease;
+            /* Smooth transitions. */
+            position: relative;
+            /* Needed for pseudo-element. */
+            overflow: hidden;
+            /* Hides overflow for slide-in effect. */
+            z-index: 1;
+            /* Ensures button content is above pseudo-element. */
+            display: flex;
+            /* Uses flexbox to align icon and text. */
+            align-items: center;
+            /* Vertically centers content. */
+            justify-content: center;
+            /* Horizontally centers content. */
+            gap: 0.5rem;
+            /* Space between icon and text. */
+            outline: none;
+            /* Removes outline on focus. */
+        }
+
+        .project-link-btn i {
+            transition: transform 0.2s ease;
+            /* Smooth transition for icon movement. */
+        }
+
+        .project-link-btn:hover i {
+            transform: translateX(5px);
+            /* Moves icon to the right on hover. */
+        }
+
+        .project-link-btn::before {
+            content: '';
+            /* Creates empty content for pseudo-element. */
+            position: absolute;
+            /* Positions relative to parent. */
+            top: 0;
+            /* Starts from top. */
+            left: 0;
+            /* Starts from left. */
+            width: 100%;
+            /* Full width. */
+            height: 100%;
+            /* Full height. */
+            background-color: var(--accent-color);
+            /* Accent color background. */
+            transform: translateX(-100%);
+            /* Initially off-screen to the left. */
+            transition: transform 0.4s var(--transition-easing);
+            /* Smooth slide-in transition. */
+            z-index: -1;
+            /* Positions behind button content. */
+        }
+
+        .project-link-btn:hover::before {
+            transform: translateX(0);
+            /* Slides background into view on hover. */
+        }
+
+        .project-link-btn.primary {
+            background-color: transparent;
+            /* Transparent background. */
+            color: var(--accent-color);
+            /* Accent color text. */
+        }
+
+        .project-link-btn.primary:hover {
+            background-color: transparent;
+            /* Transparent background on hover. */
+            color: white;
+            /* White text on hover. */
+            transform: translateY(-2px);
+            /* Lifts slightly on hover. */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            /* Adds shadow on hover. */
+        }
+
+        .project-link-btn.secondary {
+            background-color: transparent;
+            /* Transparent background. */
+            color: var(--accent-color);
+            /* Accent color text. */
+        }
+
+        .project-link-btn.secondary:hover {
+            background-color: transparent;
+            /* Transparent background on hover. */
+            color: white;
+            /* White text on hover. */
+            transform: translateY(-2px);
+            /* Lifts slightly on hover. */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            /* Adds shadow on hover. */
+        }
+
+        body.light-mode .project-link-btn.primary {
+            background-color: transparent;
+            /* Transparent background in light mode. */
+            color: var(--accent-color);
+            /* Accent color text in light mode. */
+            border-color: var(--accent-color);
+            /* Accent color border in light mode. */
+        }
+
+        body.light-mode .project-link-btn.secondary {
+            background-color: transparent;
+            /* Transparent background in light mode. */
+            color: var(--accent-color);
+            /* Accent color text in light mode. */
+            border-color: var(--accent-color);
+            /* Accent color border in light mode. */
+        }
+
+        body.light-mode .project-link-btn.primary:hover {
+            background-color: transparent;
+            /* Transparent background on hover in light mode. */
+            color: white;
+            /* White text on hover in light mode. */
+        }
+
+        body.light-mode .project-link-btn.secondary:hover {
+            background-color: transparent;
+            /* Transparent background on hover in light mode. */
+            color: white;
+            /* White text on hover in light mode. */
+        }
+
+        .view-more-container {
+            text-align: center;
+            /* Centers content. */
+            margin-top: 2rem;
+            /* Space above button. */
+        }
+
+        .view-more-btn {
+            padding: 0.75rem 1.5rem;
+            /* Padding inside button. */
+            background-color: transparent;
+            /* Transparent background. */
+            color: var(--accent-color);
+            /* Accent color text. */
+            border: 2px solid var(--accent-color);
+            /* Accent color border. */
+            border-radius: 4px;
+            /* Rounded corners. */
+            font-size: 1rem;
+            /* Font size. */
+            cursor: pointer;
+            /* Changes cursor to pointer. */
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            /* Smooth transitions. */
+            outline: none;
+            /* Removes outline on focus. */
+        }
+
+        .view-more-btn:hover {
+            background-color: var(--accent-color);
+            /* Fills with accent color on hover. */
+            color: white;
+            /* White text on hover. */
+            transform: translateY(-2px);
+            /* Lifts slightly on hover. */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            /* Adds shadow on hover. */
+        }
+
+        .project-hidden {
+            display: none;
+            /* Hides elements with this class. */
+        }
+
+        .projects-header-container {
+            display: flex;
+            /* Uses flexbox. */
+            align-items: center;
+            /* Vertically centers items. */
+            justify-content: center;
+            /* Horizontally centers items. */
+            gap: 1rem;
+            /* Space between items. */
+            margin-bottom: 2rem;
+            /* Space below container. */
+        }
+
+        .project-separator-container.horizontal {
+            display: flex;
+            /* Uses flexbox. */
+            align-items: center;
+            /* Vertically centers items. */
+            justify-content: center;
+            /* Horizontally centers items. */
+            gap: 1rem;
+            /* Space between items. */
+            margin-bottom: 3rem;
+            /* Space below container. */
+        }
+
+        .project-separator-container.horizontal .project-separator-line {
+            width: 40%;
+            /* Width of the separator line. */
+            height: 1px;
+            /* Height of the line. */
+            background-color: var(--separator-color-dark);
+            /* Dark separator color. */
+            box-shadow: none;
+            /* No shadow. */
+            transition: background-color 0.3s ease;
+            /* Smooth transition for background color. */
+        }
+
+        body.light-mode .project-separator-container.horizontal .project-separator-line {
+            background-color: var(--separator-color-light);
+            /* Light separator color in light mode. */
+        }
+
+        .project-separator-container.horizontal .project-separator-text {
+            writing-mode: horizontal-tb;
+            /* Horizontal text writing mode. */
+            text-orientation: unset;
+            /* Unsets text orientation. */
+            font-size: 1.7rem;
+            /* Font size. */
+            color: var(--about-title-color-dark);
+            /* Title color for dark mode. */
+            white-space: nowrap;
+            /* Prevents text from wrapping. */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            /* Adds text shadow. */
+            transition: color 0.3s ease;
+            /* Smooth transition for color. */
+        }
+
+        body.light-mode .project-separator-container.horizontal .project-separator-text {
+            color: var(--about-title-color-light);
+            /* Title color for light mode. */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            /* Lighter text shadow in light mode. */
+        }
+
+        .projects-header-container h3 {
+            font-size: 2.5rem;
+            /* Font size. */
+            color: var(--about-title-color-dark);
+            /* Title color for dark mode. */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            /* Adds text shadow. */
+            margin: 0;
+            /* Removes default margin. */
+            white-space: nowrap;
+            /* Prevents text from wrapping. */
+            transition: color 0.3s ease;
+            /* Smooth transition for color. */
+        }
+
+        body.light-mode .projects-header-container h3 {
+            color: var(--about-title-color-light);
+            /* Title color for light mode. */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            /* Lighter text shadow in light mode. */
+        }
+
+        /* Style for Projects Section Ends */
+
+
+        /* Style for Skill Section Started */
+        /* Skill Section Styles - NEW DESIGN */
+        .section-heading-main {
+            /* New style for the main section heading */
+            display: flex;
+            /* Uses flexbox. */
+            align-items: center;
+            /* Vertically centers items. */
+            justify-content: center;
+            /* Horizontally centers items. */
+            gap: 1rem;
+            /* Space between items. */
+            margin-bottom: 3rem;
+            /* Space below the main heading */
+            width: 100%;
+            /* Full width. */
+        }
+
+        .section-heading-main::before,
+        .section-heading-main::after {
+            content: '';
+            /* Creates empty content for pseudo-elements (the lines). */
+            flex: 1;
+            /* Allows lines to grow */
+            max-width: 150px;
+            /* Adjust max width for the lines */
+            height: 2px;
+            /* Height of the lines. */
+            background-color: currentColor;
+            /* Uses the current text color for the lines. */
+            opacity: 0.3;
+            /* Makes lines semi-transparent. */
+        }
+
+        .section-heading-main h2 {
+            font-size: 2.2rem;
+            /* Larger font for main heading */
+            font-weight: bold;
+            /* Bold font. */
+            margin: 0;
+            /* Removes default margin. */
+            white-space: nowrap;
+            /* Prevents text from wrapping. */
+            color: var(--about-title-color-dark);
+            /* Title color for dark mode. */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            /* Adds text shadow. */
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+            /* Smooth transitions. */
+        }
+
+        body.light-mode .section-heading-main h2 {
+            color: var(--about-title-color-light);
+            /* Title color for light mode. */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            /* Lighter text shadow in light mode. */
+        }
+
+        .skills-main-content {
+            display: flex;
+            /* Uses flexbox for the main skills content layout. */
+            gap: 4rem;
+            /* Increased space between the two columns */
+            align-items: flex-start;
+            /* Align items to the top */
+            flex-wrap: wrap;
+            /* Allow wrapping on smaller screens */
+            justify-content: center;
+            /* Center content when wrapped */
+        }
+
+        .skills-intro-column {
+            flex: 1;
+            /* Take up available space */
+            min-width: 300px;
+            /* Minimum width before wrapping */
+            text-align: center;
+            /* Center content within this column */
+            padding-right: 2rem;
+            /* Add padding to the right for gap before separator */
+        }
+
+        .skills-display-column {
+            flex: 2;
+            /* Take up more space for the icons */
+            min-width: 300px;
+            /* Minimum width before wrapping */
+            display: flex;
+            /* Uses flexbox. */
+            flex-direction: column;
+            /* Stack heading and grid vertically */
+            align-items: center;
+            /* Center content horizontally within this column */
+            padding-left: 2rem;
+            /* Add padding to the left for gap after separator */
+        }
+
+        .skills-intro-heading {
+            /* Styles for "What My Programming Skills Include?" */
+            font-size: 1.8rem;
+            /* Font size. */
+            font-weight: bold;
+            /* Bold font. */
+            margin-bottom: 1rem;
+            /* Space below this heading */
+            color: var(--about-title-color-dark);
+            /* Title color for dark mode. */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            /* Adds text shadow. */
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+            /* Smooth transitions. */
+        }
+
+        body.light-mode .skills-intro-heading {
+            color: var(--about-title-color-light);
+            /* Title color for light mode. */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            /* Lighter text shadow in light mode. */
+        }
+
+        .section-text.text-center {
+            text-align: center;
+            /* Centers text. */
+            color: var(--about-text-color-dark);
+            /* Text color for dark mode. */
+            margin-bottom: 2rem;
+            /* Space below text. */
+            transition: color 0.3s ease;
+            /* Smooth transition for color. */
+        }
+
+        body.light-mode .section-text.text-center {
+            color: var(--about-text-color-light);
+            /* Text color for light mode. */
+        }
+
+        .skills-toggle-container {
+            display: flex;
+            /* Uses flexbox. */
+            justify-content: center;
+            /* Centers content. */
+            margin-top: 2rem;
+            /* Space above. */
+            margin-bottom: 0;
+            /* Remove bottom margin here, let parent gap handle it */
+            width: 100%;
+            /* Full width. */
+        }
+
+        .skills-toggle {
+            background: var(--bg-secondary);
+            /* Secondary background color. */
+            border-radius: 50px;
+            /* Fully rounded. */
+            display: flex;
+            /* Uses flexbox. */
+            width: max-content;
+            /* Keep it from stretching */
+            padding: 5px;
+            /* Padding inside. */
+            position: relative;
+            /* Needed for pseudo-element. */
+            box-shadow: var(--shadow-1);
+            /* Applies a shadow. */
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+            /* Smooth transitions. */
+        }
+
+        body.light-mode .skills-toggle {
+            background: var(--bg-secondary);
+            /* Secondary background in light mode. */
+            box-shadow: var(--shadow-1);
+            /* Shadow in light mode. */
+        }
+
+        .skills-toggle::before {
+            content: '';
+            /* Creates empty content for pseudo-element (the active indicator). */
+            position: absolute;
+            /* Positions relative to parent. */
+            top: 5px;
+            /* 5px from top. */
+            bottom: 5px;
+            /* 5px from bottom. */
+            width: calc(50% - 7px);
+            /* Half width minus some padding. */
+            background: var(--engineer-gradient);
+            /* Applies gradient background. */
+            border-radius: 100px;
+            /* Fully rounded. */
+            z-index: 0;
+            /* Behind the buttons. */
+            transition: left 0.3s ease;
+            /* Smooth transition for movement. */
+            left: 5px;
+            /* Initial position to the left. */
+        }
+
+        .skills-toggle.active::before {
+            left: calc(50% + 2px);
+            /* Moves to the right when active. */
+        }
+
+        .toggle-btn {
+            color: var(--color-primary);
+            /* Primary text color. */
+            background: none;
+            /* No background. */
+            border: none;
+            /* No border. */
+            font-size: 1rem;
+            /* Font size. */
+            padding: 10px 30px;
+            /* Padding inside. */
+            cursor: pointer;
+            /* Changes cursor to pointer. */
+            transition: color 0.3s ease;
+            /* Smooth transition for color. */
+            position: relative;
+            /* Needed for z-index. */
+            z-index: 1;
+            /* Above the pseudo-element. */
+            outline: none;
+            /* Removes outline on focus. */
+        }
+
+        .toggle-btn.active {
+            font-weight: bold;
+            /* Bold font when active. */
+            color: white;
+            /* White text when active. */
+        }
+
+        body.light-mode .toggle-btn.active {
+            color: white;
+            /* White text in light mode when active. */
+        }
+
+        body.light-mode .toggle-btn:not(.active) {
+            color: var(--color-secondary);
+            /* Secondary text color in light mode when not active. */
+        }
+
+        body.dark-mode .toggle-btn:not(.active) {
+            color: var(--color-secondary);
+            /* Secondary text color in dark mode when not active. */
+        }
+
+        .skills-vertical-separator {
+            /* New style for the vertical line */
+            width: 2px;
+            /* Width of the separator. */
+            background-color: var(--separator-color-dark);
+            /* Dark separator color. */
+            box-shadow: 0 0 5px var(--separator-shadow-dark);
+            /* Subtle shadow. */
+            border-radius: 1px;
+            /* Slightly rounded. */
+            flex-shrink: 0;
+            /* Prevent it from shrinking */
+            align-self: stretch;
+            /* Make it stretch to the height of the content */
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            /* Smooth transitions. */
+        }
+
+        body.light-mode .skills-vertical-separator {
+            background-color: var(--separator-color-light);
+            /* Light separator color in light mode. */
+            box-shadow: 0 0 5px var(--separator-shadow-light);
+            /* Lighter shadow in light mode. */
+        }
+
+
+        .skills-content-wrapper {
+            position: relative;
+            /* Allows absolute positioning of child grids if needed. */
+            width: 100%;
+            /* Full width. */
+        }
+
+        /* NEW SKILLS CARD STYLES */
+        .skills-grid-new {
+            display: none;
+            /* Hidden by default, shown when active. */
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            /* Adjusted minmax for new card size */
+            gap: 20px;
+            /* Spacing between cards */
+            justify-content: center;
+            /* Centers grid items. */
+            padding: 1rem;
+            /* Padding around the grid. */
+            opacity: 0;
+            /* Initially transparent. */
+            transition: opacity 0.5s ease-in-out;
+            /* Smooth transition for opacity. */
+            max-width: 800px;
+            /* Limit width of grid */
+            margin: 0 auto;
+            /* Center the grid */
+        }
+
+        .skills-grid-new.active-grid {
+            display: grid;
+            /* Shows the grid when active. */
+            opacity: 1;
+            /* Fully opaque when active. */
+        }
+
+        .skill-card-new {
+            background-color: var(--bg-secondary);
+            /* Secondary background color. */
+            border-radius: 12px;
+            /* Rounded corners. */
+            border: 2px solid transparent;
+            /* Added transparent border */
+            box-shadow: var(--shadow-1);
+            /* Applies a shadow. */
+            padding: 1.2rem;
+            /* Padding inside. */
+            display: flex;
+            /* Uses flexbox for internal layout. */
+            flex-direction: column;
+            /* Stacks content vertically. */
+            align-items: center;
+            /* Centers content horizontally. */
+            text-align: center;
+            /* Centers text. */
+            gap: 1rem;
+            /* Space between elements. */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease;
+            /* Smooth transitions for various properties. */
+            cursor: pointer;
+            /* Changes cursor to pointer. */
+            overflow: hidden;
+            /* For progress bar overflow */
+            position: relative;
+            /* Allows positioning of child elements. */
+        }
+
+        body.light-mode .skill-card-new {
+            background-color: var(--bg-secondary);
+            /* Secondary background in light mode. */
+            box-shadow: var(--shadow-1);
+            /* Shadow in light mode. */
+        }
+
+        .skill-card-new:hover {
+            transform: translateY(-8px);
+            /* Lifts slightly on hover. */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            /* More pronounced shadow on hover. */
+            border-color: var(--accent-color);
+            /* Highlight on hover */
+        }
+
+        .skill-card-new:hover .skill-name-new,
+        .skill-card-new:hover .progress-percent-new {
+            color: var(--accent-color);
+            /* Text color on hover */
+        }
+
+        .skill-icon-new {
+            width: 60px;
+            /* Fixed width. */
+            height: 60px;
+            /* Fixed height. */
+            display: flex;
+            /* Uses flexbox to center image. */
+            align-items: center;
+            /* Vertically centers image. */
+            justify-content: center;
+            /* Horizontally centers image. */
+            border-radius: 50%;
+            /* Makes it circular. */
+            background-color: rgba(255, 255, 255, 0.05);
+            /* Subtle background for icon */
+            overflow: hidden;
+            /* Ensure zoomed image stays within circle */
+            transition: background-color 0.3s ease;
+            /* Smooth transition for background color. */
+        }
+
+        .skill-icon-new img {
+            width: 70%;
+            /* Scales image to 70% of container. */
+            height: 70%;
+            /* Scales image to 70% of container. */
+            object-fit: contain;
+            /* Ensures image is contained within bounds. */
+            transition: transform 0.3s ease-in-out;
+            /* Added transition for zoom effect */
+        }
+
+        .skill-card-new:hover .skill-icon-new img {
+            transform: scale(1.15);
+            /* Zoom effect on hover */
+        }
+
+        .skill-details-new {
+            width: 100%;
+            /* Full width. */
+            display: flex;
+            /* Uses flexbox. */
+            flex-direction: column;
+            /* Stacks content vertically. */
+            align-items: center;
+            /* Centers content horizontally. */
+        }
+
+        .skill-name-new {
+            font-size: 1.1rem;
+            /* Font size. */
+            font-weight: 600;
+            /* Semi-bold font. */
+            color: var(--color-primary);
+            /* Primary text color. */
+            margin-bottom: 0.5rem;
+            /* Space below name. */
+            white-space: nowrap;
+            /* Prevent wrapping */
+            overflow: hidden;
+            /* Hide overflow */
+            text-overflow: ellipsis;
+            /* Add ellipsis */
+            max-width: 100%;
+            /* Ensure it respects container width */
+            transition: color 0.3s ease;
+            /* Smooth transition for color. */
+        }
+
+        .progress-bar-container-new {
+            width: 100%;
+            /* Full width. */
+            height: 8px;
+            /* Fixed height. */
+            background-color: var(--separator-color-dark);
+            /* Dark separator color as background. */
+            border-radius: 4px;
+            /* Rounded corners. */
+            overflow: hidden;
+            /* Hides overflowing fill. */
+            position: relative;
+            /* Needed for fill positioning. */
+            transition: background-color 0.3s ease;
+            /* Smooth transition for background color. */
+        }
+
+        body.light-mode .progress-bar-container-new {
+            background-color: var(--separator-color-light);
+            /* Light separator color in light mode. */
+        }
+
+        .skill-card-new:hover .progress-bar-container-new {
+            background-color: rgba(13, 202, 240, 0.3);
+            /* Lighter accent background for bar on hover */
+        }
+
+        .progress-bar-fill-new {
+            height: 100%;
+            /* Full height of container. */
+            width: 0%;
+            /* Initial width */
+            background: var(--engineer-gradient);
+            /* Gradient fill */
+            border-radius: 4px;
+            /* Rounded corners. */
+            transition: width 1s ease-out;
+            /* Animation for fill */
+            position: absolute;
+            /* Positions relative to container. */
+            top: 0;
+            /* Starts from top. */
+            left: 0;
+            /* Starts from left. */
+        }
+
+        .progress-percent-new {
+            position: absolute;
+            /* Positions relative to container. */
+            top: 50%;
+            /* Vertically centered. */
+            left: 50%;
+            /* Horizontally centered. */
+            transform: translate(-50%, -50%);
+            /* Adjusts for exact centering. */
+            font-size: 0.85rem;
+            /* Smaller font size. */
+            font-weight: bold;
+            /* Bold font. */
+            color: var(--color-primary);
+            /* Default color for percentage */
+            opacity: 0;
+            /* Hidden by default */
+            transition: opacity 0.3s ease, color 0.3s ease;
+            /* Smooth transitions. */
+            z-index: 2;
+            /* Ensure it's above the fill */
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            /* Add subtle shadow for readability */
+        }
+
+        body.light-mode .progress-percent-new {
+            color: var(--color-primary);
+            /* Primary text color in light mode. */
+        }
+
+
+        .skill-card-new:hover .progress-percent-new {
+            opacity: 1;
+            /* Show on hover */
+            color: white;
+            /* Changed to white on hover for better contrast on accent background */
+            text-shadow: none;
+            /* Remove shadow on hover as background takes over */
+        }
+
+        .skill-card-new:hover .progress-bar-fill-new {
+            /* On hover, the fill should still be there, but the percentage is visible */
+            /* No change to fill itself, just percentage visibility */
+        }
+
+        /* Responsive adjustments for skills section */
+        @media (max-width: 992px) {
+            /* Adjust breakpoint for two columns to stack */
+            .skills-main-content {
+                flex-direction: column;
+                /* Stack columns on smaller screens */
+                align-items: center;
+                /* Center stacked columns */
+                gap: 2rem;
+                /* Reduced gap when stacked */
+            }
+
+            .skills-intro-column,
+            .skills-display-column {
+                min-width: unset;
+                /* Remove min-width to allow full width */
+                width: 100%;
+                /* Take full width when stacked */
+                padding-right: 0;
+                /* Remove column padding when stacked */
+                padding-left: 0;
+                /* Remove column padding when stacked */
+            }
+
+            .skills-vertical-separator {
+                display: none;
+                /* Hide vertical separator when columns stack */
+            }
+
+            .skills-toggle {
+                width: max-content;
+                /* Keep it max-content on smaller screens too */
+            }
+        }
+
+        @media (max-width: 768px) {
+            section.skills {
+                padding: 2rem 1rem;
+                /* Adjust section padding for smaller screens. */
+            }
+
+            .skills-toggle-container {
+                /* Ensure toggle is centered and doesn't stretch too much on very small screens */
+                padding: 0 1rem;
+                /* Add some horizontal padding */
+            }
+
+            .skills-toggle {
+                width: max-content;
+                /* Still max-content */
+                margin: 0 auto;
+                /* Center it if its container is wider */
+            }
+
+            .skills-toggle::before {
+                width: calc(50% - 7px);
+                /* Adjust width of toggle indicator. */
+            }
+
+            .toggle-btn {
+                padding: 8px 20px;
+                /* Adjust padding for toggle buttons. */
+            }
+
+            .skills-grid-new {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                /* Smaller cards for small screens */
+                gap: 15px;
+                /* Reduced gap. */
+            }
+
+            .skill-card-new {
+                padding: 0.8rem;
+                /* Reduced padding. */
+                gap: 0.8rem;
+                /* Reduced gap. */
+            }
+
+            .skill-icon-new {
+                width: 50px;
+                /* Smaller icon size. */
+                height: 50px;
+                /* Smaller icon size. */
+            }
+
+            .skill-name-new {
+                font-size: 0.95rem;
+                /* Smaller font size. */
+            }
+
+            .progress-percent-new {
+                font-size: 0.75rem;
+                /* Smaller font size. */
+            }
+        }
+
+        /* Style for Skill Section Ends */
+
+
+        /* Style for Responsive Adjustments Started */
+        /* Responsive adjustments for other sections */
+        @media (max-width: 992px) {
+            /* Changed from 768px to 992px for this section */
+            .about-container {
+                flex-direction: column;
+                /* Stack columns on smaller screens */
+                align-items: center;
+                /* Center profile card and about text */
+            }
+
+            .profile-card {
+                width: 100%;
+                /* Allow profile card to take full width */
+                max-width: 300px;
+                /* Keep max-width for consistency */
+            }
+
+            .about-me-text {
+                width: 100%;
+                /* Full width. */
+                margin-left: 0;
+                /* Remove margin-left on small screens */
+                text-align: center;
+                /* Center text content on small screens */
+                margin-top: 2rem;
+                /* Ensure consistent spacing when stacked */
+                padding-top: 0;
+                /* Remove padding-top on small screens */
+            }
+
+            /* Removed separator-container media query styles */
+            .project-separator-text {
+                writing-mode: horizontal-tb;
+                /* Horizontal text writing mode. */
+                text-orientation: unset;
+                /* Unsets text orientation. */
+                margin: 0;
+                /* Removes default margin. */
+            }
+
+            .project-separator-project {
+                width: 40%;
+                /* Width of separator line. */
+                height: 2px;
+                /* Height of separator line. */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .banner {
+                flex-direction: column;
+                /* Stack content vertically. */
+                text-align: center;
+                /* Centers text. */
+                padding: 1rem;
+                /* Adjust padding for smaller screens */
+                justify-content: center;
+                /* Center content vertically */
+            }
+
+            .intro-text {
+                max-width: 100%;
+                /* Full width. */
+                margin-bottom: 2rem;
+                /* Space between text and scroll down */
+            }
+
+            .intro-text h2 {
+                font-size: 2rem;
+                /* Adjust font size */
+            }
+
+            .typed-code {
+                font-size: 1rem;
+                /* Adjust font size */
+            }
+
+            .social-icons {
+                position: static;
+                /* Remove absolute positioning */
+                transform: none;
+                /* Resets transform. */
+                flex-direction: row;
+                /* Arrange horizontally */
+                margin-top: 2rem;
+                /* Space from intro text */
+                margin-right: 0;
+                /* Removes right margin. */
+                justify-content: center;
+                /* Center social icons */
+            }
+
+            .scroll-down {
+                display: none;
+                /* Hide scroll down on very small screens if space is tight */
+            }
+
+            .nav-items {
+                display: none;
+                /* Hide main nav */
+            }
+
+            .mobile-menu-button {
+                display: block;
+                /* Show mobile menu button */
+                color: var(--text-dark);
+                /* Ensure button color matches theme */
+            }
+
+            body.light-mode .mobile-menu-button {
+                color: var(--text-light);
+                /* Light text color for mobile menu button in light mode. */
+            }
+
+            .navbar-actions {
+                margin-left: 1rem;
+                /* Adjust margin for actions */
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                /* Single column on mobile */
+                gap: 1.5rem;
+                /* Reduced gap. */
+            }
+
+            section {
+                padding: 2rem 1rem;
+                /* Adjust section padding */
+                padding-top: calc(2rem + 70px);
+                /* Adjust based on header height */
+            }
+        }
+
+        /* Style for Responsive Adjustments Ends */
+
+
+        /* Style for Resume Section Started */
+        .resume-content {
+            display: grid;
+            /* Uses CSS Grid. */
+            grid-template-columns: 1fr;
+            /* Default to single column */
+            gap: 2.5rem;
+            /* Spacing between main resume sections */
+            max-width: 1000px;
+            /* Max width for the resume content */
+            margin: 0 auto;
+            /* Center the content */
+            align-items: start;
+            /* Align grid items to their start, preventing vertical stretch */
+        }
+
+        .resume-section-card {
+            background-color: var(--bg-secondary);
+            /* Secondary background color. */
+            border-radius: 12px;
+            /* Rounded corners. */
+            box-shadow: var(--shadow-1);
+            /* Applies a shadow. */
+            padding: 2rem;
+            /* Padding inside. */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            /* Added transition for hover */
+        }
+
+        .resume-section-card:hover {
+            transform: translateY(-5px);
+            /* Lifts slightly on hover. */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            /* More pronounced shadow on hover */
+        }
+
+        .resume-section-title {
+            display: flex;
+            /* Uses flexbox. */
+            align-items: center;
+            /* Vertically centers items. */
+            gap: 1rem;
+            /* Space between icon and text. */
+            margin-bottom: 1.5rem;
+            /* Space below title. */
+            color: var(--accent-color);
+            /* Accent color for section titles */
+            font-size: 1.8rem;
+            /* Font size. */
+            font-weight: bold;
+            /* Bold font. */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            /* Adds text shadow. */
+        }
+
+        .resume-section-title i {
+            font-size: 1.5em;
+            /* Larger icon for titles */
+        }
+
+        .resume-text {
+            color: var(--text-dark);
+            /* Text color for dark mode. */
+            line-height: 1.6;
+            /* Line height for readability. */
+            margin-bottom: 1rem;
+            /* Space below text. */
+        }
+
+        body.light-mode .resume-text {
+            color: var(--text-light);
+            /* Text color for light mode. */
+        }
+
+        /* Skills Grid within Resume */
+        .resume-skills-grid {
+            display: grid;
+            /* Uses CSS Grid. */
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            /* Adjust for skill categories */
+            gap: 1.5rem;
+            /* Space between grid items. */
+            margin-top: 1.5rem;
+            /* Space above grid. */
+        }
+
+        .skill-category-block {
+            background-color: var(--bg-primary);
+            /* Slightly different background for categories */
+            border-radius: 8px;
+            /* Rounded corners. */
+            padding: 1rem;
+            /* Padding inside. */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Subtle shadow. */
+        }
+
+        body.light-mode .skill-category-block {
+            background-color: var(--bg-primary);
+            /* Primary background in light mode. */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            /* Lighter shadow in light mode. */
+        }
+
+        .skill-category-title {
+            font-weight: bold;
+            /* Bold font. */
+            color: var(--accent-color);
+            /* Accent color. */
+            margin-bottom: 0.75rem;
+            /* Space below title. */
+            font-size: 1.1rem;
+            /* Font size. */
+            word-break: break-word;
+            /* Ensure title wraps */
+        }
+
+        .skill-list {
+            list-style: disc;
+            /* Changed to disc for bullets */
+            padding-left: 1.25rem;
+            /* Add padding for bullet points */
+            margin: 0;
+            /* Removes default margin. */
+            font-size: 0.95rem;
+            /* Font size. */
+            color: var(--text-dark);
+            /* Text color for dark mode. */
+        }
+
+        body.light-mode .skill-list {
+            color: var(--text-light);
+            /* Text color for light mode. */
+        }
+
+        .skill-list li {
+            margin-bottom: 0.4rem;
+            /* Space between list items. */
+            word-break: break-word;
+            /* Ensure list items wrap */
+        }
+
+        /* Experience/Education/Project Item */
+        .resume-item {
+            margin-bottom: 2rem;
+            /* Space below each item. */
+            padding-bottom: 1.5rem;
+            /* Padding at the bottom. */
+            border-bottom: 1px solid var(--separator-color-dark);
+            /* Subtle separator */
+        }
+
+        .resume-item:last-child {
+            border-bottom: none;
+            /* No border for the last item */
+            margin-bottom: 0;
+            /* No bottom margin for the last item. */
+            padding-bottom: 0;
+            /* No bottom padding for the last item. */
+        }
+
+        .resume-item-header {
+            display: flex;
+            /* Uses flexbox. */
+            justify-content: space-between;
+            /* Distributes space. */
+            align-items: baseline;
+            /* Aligns items to their text baseline. */
+            flex-wrap: wrap;
+            /* Allow wrapping on small screens */
+            margin-bottom: 0.5rem;
+            /* Space below header. */
+        }
+
+        .resume-item-title {
+            font-size: 1.4rem;
+            /* Font size. */
+            font-weight: bold;
+            /* Bold font. */
+            color: var(--text-dark);
+            /* Text color for dark mode. */
+            margin: 0;
+            /* Removes default margin. */
+        }
+
+        body.light-mode .resume-item-title {
+            color: var(--text-light);
+            /* Text color for light mode. */
+        }
+
+        .resume-item-subtitle {
+            font-size: 1.1rem;
+            /* Font size. */
+            color: var(--accent-color);
+            /* Accent color. */
+            margin: 0;
+            /* Removes default margin. */
+        }
+
+        .resume-item-duration {
+            font-size: 0.9rem;
+            /* Smaller font size. */
+            color: var(--color-secondary);
+            /* Lighter text for dates */
+            white-space: nowrap;
+            /* Prevent date from wrapping */
+        }
+
+        .resume-item-description {
+            color: var(--text-dark);
+            /* Text color for dark mode. */
+            line-height: 1.5;
+            /* Line height for readability. */
+            margin-top: 0.75rem;
+            /* Space above description. */
+        }
+
+        body.light-mode .resume-item-description {
+            color: var(--text-light);
+            /* Text color for light mode. */
+        }
+
+        .resume-item-description ul {
+            list-style: disc;
+            /* Disc bullet points. */
+            margin-left: 1.5rem;
+            /* Indent for list items. */
+            padding: 0;
+            /* Removes default padding. */
+        }
+
+        .resume-item-description li {
+            margin-bottom: 0.5rem;
+            /* Space between list items. */
+        }
+
+        .resume-project-tech {
+            font-size: 0.9rem;
+            /* Smaller font size. */
+            color: var(--color-secondary);
+            /* Secondary text color. */
+            margin-top: 0.5rem;
+            /* Space above. */
+        }
+
+        .resume-project-tech strong {
+            color: var(--accent-color);
+            /* Accent color for strong text. */
+            font-weight: normal;
+            /* Normal font weight. */
+        }
+
+        .resume-achievement {
+            font-size: 1.1rem;
+            /* Font size. */
+            font-style: italic;
+            /* Italic font style. */
+            color: var(--text-dark);
+            /* Text color for dark mode. */
+            margin-top: 1rem;
+            /* Space above. */
+            padding: 1rem;
+            /* Padding inside. */
+            background-color: rgba(13, 202, 240, 0.1);
+            /* Light accent background */
+            border-left: 5px solid var(--accent-color);
+            /* Accent colored left border. */
+            border-radius: 8px;
+            /* Rounded corners. */
+        }
+
+        body.light-mode .resume-achievement {
+            color: var(--text-light);
+            /* Text color for light mode. */
+        }
+
+        /* Download Resume Button */
+        .download-resume-container {
+            text-align: center;
+            /* Centers content. */
+            margin-top: 3rem;
+            /* Space above. */
+            margin-bottom: 2rem;
+            /* Space below the button */
+        }
+
+        .download-resume-btn {
+            padding: 0.8rem 2rem;
+            /* Padding inside. */
+            background-color: var(--accent-color);
+            /* Accent color background. */
+            color: white;
+            /* White text. */
+            border: 2px solid var(--accent-color);
+            /* Accent color border. */
+            border-radius: 8px;
+            /* Rounded corners. */
+            font-size: 1.1rem;
+            /* Font size. */
+            font-weight: 600;
+            /* Semi-bold font. */
+            text-decoration: none;
+            /* Removes underline. */
+            display: inline-flex;
+            /* Uses inline-flex to align icon and text. */
+            align-items: center;
+            /* Vertically centers content. */
+            gap: 0.75rem;
+            /* Space between icon and text. */
+            cursor: pointer;
+            /* Changes cursor to pointer. */
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            /* Smooth transitions. */
+            box-shadow: 0 5px 15px rgba(0, 202, 240, 0.3);
+            /* Subtle shadow for accent color */
+            outline: none;
+            /* Removes outline on focus. */
+        }
+
+        .download-resume-btn:hover {
+            background-color: transparent;
+            /* Transparent background on hover. */
+            color: var(--accent-color);
+            /* Accent color text on hover. */
+            transform: translateY(-3px);
+            /* Lift effect on hover */
+            box-shadow: 0 8px 20px rgba(0, 202, 240, 0.4);
+            /* More pronounced shadow on hover. */
+        }
+
+        .download-resume-btn i {
+            font-size: 1.2em;
+            /* Icon size */
+        }
+
+        /* Style for Resume Section Ends */
+
+
+        /* Style for Contact Section Started */
+        .contact-content {
+            display: flex;
+            /* Uses flexbox. */
+            flex-wrap: wrap;
+            /* Allow wrapping for responsiveness */
+            justify-content: center;
+            /* Center content horizontally */
+            gap: 2.5rem;
+            /* Increased space between columns for better separation */
+            max-width: 800px;
+            /* Adjusted max width for the entire contact section */
+            margin: 0 auto;
+            /* Center the section */
+            padding: 0 1rem;
+            /* Add some horizontal padding to the container itself */
+        }
+
+        .contact-left {
+            flex: 1;
+            /* Allows this column to grow */
+            min-width: 280px;
+            /* Adjusted min-width for smaller screens */
+            max-width: 380px;
+            /* Adjusted max width for the left column */
+            padding-right: 0;
+            /* No extra padding here, controlled by gap */
+            position: relative;
+            /* For the "CONTACT" text */
+            padding-bottom: 0;
+            /* Remove extra bottom padding */
+        }
+
+        .contact-right {
+            flex: 1;
+            /* Allows this column to grow */
+            min-width: 280px;
+            /* Adjusted min-width for smaller screens */
+            max-width: 380px;
+            /* Adjusted max width for the form column */
+            background-color: var(--bg-secondary);
+            /* Secondary background color. */
+            border-radius: 12px;
+            /* Rounded corners. */
+            box-shadow: var(--shadow-1);
+            /* Applies a shadow. */
+            padding: 1.5rem;
+            /* Reduced padding for the form container */
+            display: flex;
+            /* Uses flexbox. */
+            flex-direction: column;
+            /* Stacks content vertically. */
+            gap: 0.8rem;
+            /* Reduced gap between form groups */
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            /* Smooth transitions. */
+        }
+
+        body.light-mode .contact-right {
+            background-color: var(--bg-secondary);
+            /* Secondary background in light mode. */
+            box-shadow: var(--shadow-1);
+            /* Shadow in light mode. */
+        }
+
+        .contact-header-left {
+            font-size: 1.8rem;
+            /* Reduced font size */
+            font-weight: bold;
+            /* Bold font. */
+            color: var(--text-dark);
+            /* Main heading color */
+            margin-bottom: 0.6rem;
+            /* Reduced margin */
+            line-height: 1.3;
+            /* Adjusted line height for better fit */
+            transition: color 0.3s ease;
+            /* Smooth transition for color. */
+        }
+
+        body.light-mode .contact-header-left {
+            color: var(--text-light);
+            /* Light text color in light mode. */
+        }
+
+        .contact-header-left span {
+            background: var(--engineer-gradient);
+            /* Applies gradient background. */
+            -webkit-background-clip: text;
+            /* Clips background to text. */
+            -webkit-text-fill-color: transparent;
+            /* Makes text transparent. */
+        }
+
+        .contact-intro-text {
+            color: var(--about-text-color-dark);
+            /* Text color for dark mode. */
+            margin-bottom: 1rem;
+            /* Reduced margin */
+            font-size: 0.9rem;
+            /* Reduced font size */
+            line-height: 1.5;
+            /* Adjusted line height */
+            transition: color 0.3s ease;
+            /* Smooth transition for color. */
+        }
+
+        body.light-mode .contact-intro-text {
+            color: var(--about-text-color-light);
+            /* Text color for light mode. */
+        }
+
+        .contact-details-list {
+            list-style: none;
+            /* Removes default list style. */
+            padding: 0;
+            /* Removes default padding. */
+            margin: 0;
+            /* Removes default margin. */
+            margin-bottom: 1.5rem;
+            /* Added spacing between contact details and social icons */
+        }
+
+        .contact-detail-item {
+            display: flex;
+            /* Uses flexbox. */
+            align-items: flex-start;
+            /* Align icon and text to start, so text wraps below icon */
+            gap: 0.8rem;
+            /* Reduced gap */
+            margin-bottom: 0.7rem;
+            /* Reduced margin */
+            color: var(--text-dark);
+            /* Text color for dark mode. */
+            font-size: 0.9rem;
+            /* Reduced font size */
+            line-height: 1.3;
+            /* Adjusted line height */
+            transition: color 0.3s ease;
+            /* Smooth transition for color. */
+        }
+
+        body.light-mode .contact-detail-item {
+            color: var(--text-light);
+            /* Text color for light mode. */
+        }
+
+        .contact-detail-item i {
+            font-size: 1.2rem;
+            /* Slightly reduced icon size */
+            color: var(--accent-color);
+            /* Accent color. */
+            flex-shrink: 0;
+            /* Prevent icon from shrinking */
+            padding-top: 0.15rem;
+            /* Align icon better with multi-line text */
+        }
+
+        .contact-detail-item .text-content a {
+            color: inherit;
+            /* Inherit color from parent */
+            text-decoration: none;
+            /* Removes underline. */
+            transition: color 0.3s ease;
+            /* Smooth transition for color. */
+        }
+
+        .contact-detail-item .text-content a:hover {
+            color: var(--accent-color);
+            /* Highlight on hover */
+        }
+
+        .contact-detail-item .text-content p {
+            margin: 0;
+            /* Remove default paragraph margin */
+        }
+
+        .contact-social-icons {
+            display: flex;
+            /* Uses flexbox. */
+            gap: 0.8rem;
+            /* Reduced gap between social icons */
+            /* margin-top: 1.2rem; Removed as margin-bottom is added to .contact-details-list */
+            justify-content: flex-start;
+            /* Align to start on left column */
+        }
+
+        .contact-social-icons a {
+            font-size: 1.3rem;
+            /* Reduced social icon size */
+            position: relative;
+            /* Needed for tooltip. */
+            overflow: hidden;
+            /* Hides overflow for tooltip. */
+            display: inline-flex;
+            /* Uses inline-flex. */
+            align-items: center;
+            /* Vertically centers icon. */
+            justify-content: center;
+            /* Horizontally centers icon. */
+            width: 1.5em;
+            /* Adjust as needed for circular background */
+            height: 1.5em;
+            /* Adjust as needed for circular background */
+            border-radius: 50%;
+            /* Makes it circular. */
+            text-decoration: none;
+            /* Removes underline. */
+            color: var(--text-dark);
+            /* Default icon color */
+            transition: transform 0.3s ease, color 0.3s ease;
+            /* Smooth transitions. */
+            outline: none;
+            /* Removes outline on focus. */
+        }
+
+        body.light-mode .contact-social-icons a {
+            color: var(--text-light);
+            /* Light text color in light mode. */
+        }
+
+        /* Specific colors for social icons on hover */
+        .contact-social-icons a[aria-label="HackerRank"]:hover {
+            color: var(--hackerrank-color);
+            /* HackerRank green on hover. */
+        }
+
+        .contact-social-icons a[aria-label="LinkedIn"]:hover {
+            color: var(--linkedin-color);
+            /* LinkedIn blue on hover. */
+        }
+
+        .contact-social-icons a[aria-label="GitHub"]:hover {
+            color: var(--github-color);
+            /* GitHub orange on hover. */
+        }
+
+        .contact-social-icons a[aria-label="YouTube"]:hover {
+            color: var(--youtube-color);
+            /* YouTube red on hover. */
+        }
+
+
+        .contact-social-icons a:hover {
+            transform: scale(1.1);
+            /* Scales up on hover. */
+        }
+
+        .contact-social-icons a::before {
+            content: attr(aria-label);
+            /* Get the social network name from aria-label */
+            position: absolute;
+            /* Positions relative to the link. */
+            bottom: -1.5em;
+            /* Position below the icon */
+            left: 50%;
+            /* Horizontally centered. */
+            transform: translateX(-50%);
+            /* Adjusts for exact centering. */
+            font-size: 0.7em;
+            /* Smaller font size. */
+            white-space: nowrap;
+            /* Prevents text from wrapping. */
+            opacity: 0;
+            /* Initially transparent. */
+            transition: bottom 0.3s ease, opacity 0.3s ease;
+            /* Smooth transitions. */
+            color: var(--text-dark);
+            /* Text color for dark mode. */
+            background-color: var(--bg-secondary);
+            /* Secondary background color. */
+            padding: 0.2em 0.5em;
+            /* Padding for tooltip. */
+            border-radius: 4px;
+            /* Rounded corners. */
+            z-index: 10;
+            /* Ensures tooltip is above other content. */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            /* Subtle shadow. */
+        }
+
+        .contact-social-icons a:hover::before {
+            bottom: -2.5em;
+            /* Moves tooltip further up on hover. */
+            opacity: 1;
+            /* Makes tooltip fully visible on hover. */
+        }
+
+        /* Light mode adjustments for social link text */
+        body.light-mode .contact-social-icons a::before {
+            color: var(--text-light);
+            /* Light text color in light mode. */
+            background-color: var(--bg-secondary);
+            /* Secondary background in light mode. */
+        }
+
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 0.8rem;
+            /* Reduced margin */
+        }
+
+        .form-group label {
+            display: block;
+            /* Makes label a block element. */
+            margin-bottom: 0.2rem;
+            /* Reduced margin */
+            font-weight: 500;
+            /* Medium font weight. */
+            color: var(--text-dark);
+            /* Text color for dark mode. */
+            font-size: 0.9rem;
+            /* Reduced font size */
+            transition: color 0.3s ease;
+            /* Smooth transition for color. */
+        }
+
+        body.light-mode .form-group label {
+            color: var(--text-light);
+            /* Light text color in light mode. */
+        }
+
+        .input-wrapper {
+            position: relative;
+            /* Allows positioning of icon inside. */
+            display: flex;
+            /* Use flex to align input and icon */
+            align-items: center;
+            /* Vertically center icon */
+        }
+
+        .input-wrapper input,
+        .input-wrapper textarea {
+            width: 100%;
+            /* Full width. */
+            padding: 0.6rem 0.8rem;
+            /* Reduced padding */
+            padding-left: 2.5rem;
+            /* Space for the icon */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            /* Subtle border */
+            border-radius: 8px;
+            /* Rounded corners. */
+            background-color: rgba(255, 255, 255, 0.05);
+            /* Slightly lighter background for input */
+            color: var(--text-dark);
+            /* Text color for dark mode. */
+            font-size: 0.9rem;
+            /* Reduced font size */
+            transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            /* Smooth transitions. */
+            outline: none;
+            /* Removes outline on focus. */
+        }
+
+        body.light-mode .input-wrapper input,
+        body.light-mode .input-wrapper textarea {
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            /* Light border in light mode. */
+            background-color: rgba(0, 0, 0, 0.05);
+            /* Light background in light mode. */
+            color: var(--text-light);
+            /* Light text color in light mode. */
+        }
+
+        .input-wrapper input:focus,
+        .input-wrapper textarea:focus {
+            outline: none;
+            /* Removes outline on focus. */
+            border-color: var(--accent-color);
+            /* Accent color border on focus. */
+            box-shadow: 0 0 0 3px rgba(13, 202, 240, 0.2);
+            /* Subtle glow on focus. */
+        }
+
+        .input-wrapper textarea {
+            min-height: 80px;
+            /* Reduced min-height */
+            resize: vertical;
+            /* Allows vertical resizing. */
+            /* Textarea doesn't need left padding for icon unless it's a message input */
+        }
+
+        .input-wrapper input::placeholder,
+        .input-wrapper textarea::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+            /* Subtle placeholder color for dark mode. */
+            transition: color 0.3s ease;
+            /* Smooth transition for color. */
+        }
+
+        body.light-mode .input-wrapper input::placeholder,
+        body.light-mode .input-wrapper textarea::placeholder {
+            color: rgba(0, 0, 0, 0.4);
+            /* Subtle placeholder color for light mode. */
+        }
+
+        .input-icon {
+            position: absolute;
+            /* Positions relative to input wrapper. */
+            left: 0.8rem;
+            /* 0.8rem from the left. */
+            color: var(--accent-color);
+            /* Accent color. */
+            font-size: 1rem;
+            /* Icon size */
+            pointer-events: none;
+            /* Make icon unclickable */
+            z-index: 1;
+            /* Ensure icon is above input */
+        }
+
+        /* Adjusted positioning for message icon */
+        .input-wrapper.message-input .input-icon {
+            top: 0.6rem;
+            /* Align icon to the top of the textarea */
+            left: 0.8rem;
+            /* Keep it on the left */
+            display: block;
+            /* Ensure it's visible */
+        }
+
+        /* Adjust padding for textarea when icon is present */
+        .input-wrapper.message-input textarea {
+            padding-left: 2.5rem;
+            /* Adds left padding for the icon. */
+        }
+
+
+        .contact-submit-btn {
+            width: 100%;
+            /* Full width. */
+            padding: 0.7rem 1.2rem;
+            /* Reduced padding */
+            background-color: var(--accent-color);
+            /* Accent color background. */
+            color: white;
+            /* White text. */
+            border: none;
+            /* No border. */
+            border-radius: 8px;
+            /* Rounded corners. */
+            font-size: 0.95rem;
+            /* Reduced font size */
+            font-weight: bold;
+            /* Bold font. */
+            cursor: pointer;
+            /* Changes cursor to pointer. */
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            /* Smooth transitions. */
+            box-shadow: 0 5px 15px rgba(0, 202, 240, 0.3);
+            /* Subtle shadow. */
+            margin-top: 0.5rem;
+            /* Small margin above button */
+            outline: none;
+            /* Removes outline on focus. */
+        }
+
+        .contact-submit-btn:hover {
+            background-color: #0ab1d1;
+            /* Slightly darker accent on hover */
+            transform: translateY(-2px);
+            /* Lifts slightly on hover. */
+            box-shadow: 0 8px 20px rgba(0, 202, 240, 0.4);
+            /* More pronounced shadow on hover. */
+        }
+
+        /* "CONTACT" text on the left side of the section */
+        .section-text-vertical {
+            position: absolute;
+            /* Positions relative to its parent (contact-left). */
+            left: -20px;
+            /* Adjust as needed */
+            top: 50%;
+            /* Vertically centered. */
+            transform: translateY(-50%) rotate(-90deg);
+            /* Adjusts for centering and rotates 90 degrees counter-clockwise. */
+            transform-origin: left top;
+            /* Sets the origin of the transform. */
+            font-size: 1.5rem;
+            /* Font size. */
+            font-weight: bold;
+            /* Bold font. */
+            color: rgba(255, 255, 255, 0.1);
+            /* Very subtle white for dark mode */
+            white-space: nowrap;
+            /* Prevents text from wrapping. */
+            user-select: none;
+            /* Prevents text from being selected. */
+            pointer-events: none;
+            /* Makes text unclickable. */
+            z-index: 0;
+            /* Behind other content. */
+            transition: color 0.3s ease;
+            /* Smooth transition for color. */
+        }
+
+        body.light-mode .section-text-vertical {
+            color: rgba(0, 0, 0, 0.05);
+            /* Very subtle black for light mode */
+        }
+
+        /* Contact form success/error message styling */
+        .form-message {
+            margin-top: 1rem;
+            /* Space above. */
+            padding: 0.75rem;
+            /* Padding inside. */
+            border-radius: 8px;
+            /* Rounded corners. */
+            text-align: center;
+            /* Centers text. */
+            font-weight: bold;
+            /* Bold font. */
+            display: none;
+            /* Hidden by default */
+            opacity: 0;
+            /* Initially transparent. */
+            transition: opacity 0.3s ease-in-out;
+            /* Smooth transition for opacity. */
+        }
+
+        .form-message.success {
+            background-color: #d4edda;
+            /* Light green background for success. */
+            color: #155724;
+            /* Dark green text for success. */
+            border: 1px solid #c3e6cb;
+            /* Green border for success. */
+        }
+
+        .form-message.error {
+            background-color: #f8d7da;
+            /* Light red background for error. */
+            color: #721c24;
+            /* Dark red text for error. */
+            border: 1px solid #f5c6cb;
+            /* Red border for error. */
+        }
+
+        .form-message.show {
+            display: block;
+            /* Shows the message. */
+            opacity: 1;
+            /* Makes it fully visible. */
+        }
+
+
+        /* Responsive adjustments for Contact Section */
+        @media (max-width: 992px) {
+            .contact-content {
+                flex-direction: column;
+                /* Stack columns on smaller screens */
+                align-items: center;
+                /* Center content when stacked */
+                gap: 1.5rem;
+                /* Reduced gap. */
+            }
+
+            .contact-left,
+            .contact-right {
+                width: 90%;
+                /* Take more width on smaller screens */
+                max-width: 400px;
+                /* Adjusted max-width for better fit */
+                min-width: unset;
+                /* Removes min-width. */
+                padding-right: 0;
+                /* Remove padding when stacked */
+                padding-left: 0;
+                /* Ensure no extra padding */
+            }
+
+            .contact-left {
+                padding-bottom: 0;
+                /* Remove extra bottom padding when stacked */
+            }
+
+            .contact-right {
+                padding: 1.5rem;
+                /* Ensure consistent padding for form on small screens */
+            }
+
+            .contact-header-left {
+                text-align: center;
+                /* Centers text. */
+                font-size: 1.8rem;
+                /* Further adjustment for small screens */
+            }
+
+            .contact-intro-text {
+                text-align: center;
+                /* Centers text. */
+                font-size: 0.9rem;
+                /* Further adjustment for small screens */
+            }
+
+            .contact-details-list,
+            .contact-social-icons {
+                justify-content: center;
+                /* Center items when stacked */
+            }
+
+            .section-text-vertical {
+                display: none;
+                /* Hide vertical text on smaller screens */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .contact-right {
+                padding: 1rem;
+                /* Even smaller padding on very small screens */
+            }
+
+            .contact-header-left {
+                font-size: 1.5rem;
+                /* Adjust font size */
+            }
+
+            .contact-intro-text {
+                font-size: 0.85rem;
+                /* Adjust font size */
+            }
+
+            .contact-detail-item {
+                font-size: 0.85rem;
+                /* Adjust font size */
+            }
+
+            .contact-detail-item i {
+                font-size: 1.1rem;
+                /* Adjust icon size */
+            }
+
+            .contact-social-icons a {
+                font-size: 1.3rem;
+                /* Adjust icon size */
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 0.5rem 0.7rem;
+                /* Adjust padding */
+                font-size: 0.85rem;
+                /* Adjust font size */
+            }
+
+            .contact-submit-btn {
+                padding: 0.7rem 1rem;
+                /* Adjust padding */
+                font-size: 0.9rem;
+                /* Adjust font size */
+            }
+        }
+
+        /* Style for Contact Section Ends */
+
+
+        /* Style for Footer Section Started */
+        .footer {
+            background-color: var(--bg-secondary);
+            /* Use secondary background color for footer */
+            color: var(--text-dark);
+            /* Default text color for dark mode */
+            padding: 0.75rem 1rem;
+            /* Reduced vertical padding for less height */
+            text-align: center;
+            /* Default center align for mobile */
+            border-top: 1px solid var(--separator-color-dark);
+            /* Subtle top border */
+            box-shadow: 0 -5px 15px var(--separator-shadow-dark);
+            /* Subtle shadow at the top */
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            /* Smooth transitions. */
+        }
+
+        body.light-mode .footer {
+            color: var(--text-light);
+            /* Dark text for light mode */
+            border-top: 1px solid var(--separator-color-light);
+            /* Light border in light mode. */
+            box-shadow: 0 -5px 15px var(--separator-shadow-light);
+            /* Lighter shadow in light mode. */
+        }
+
+        .footer-content {
+            max-width: 1000px;
+            /* Max width for content. */
+            margin: 0 auto;
+            /* Centers content. */
+            display: flex;
+            /* Uses flexbox. */
+            flex-direction: column;
+            /* Stack vertically for mobile */
+            align-items: center;
+            /* Center horizontally for mobile */
+            gap: 1rem;
+            /* Space between stacked items */
+            padding: 0;
+            /* Let parent footer handle padding */
+        }
+
+        .footer-logo {
+            font-weight: bold;
+            /* Bold font. */
+            font-size: 28px;
+            /* Font size. */
+            color: var(--accent-color);
+            /* Accent color. */
+        }
+
+        .footer-logo span {
+            color: #ff6f61;
+            /* Specific color. */
+            font-family: monospace;
+            /* Monospace font. */
+            font-size: 32px;
+            /* Larger font size. */
+        }
+
+        .footer-social-icons {
+            display: flex;
+            /* Uses flexbox. */
+            gap: 0.8rem;
+            /* Consistent gap with other social icon sections, reduced for footer */
+            margin-bottom: 0;
+            /* Reset margin for flexbox */
+        }
+
+        .footer-social-icons a {
+            font-size: 1.2rem;
+            /* Consistent icon size with contact section, reduced for footer */
+            position: relative;
+            /* Needed for tooltip. */
+            overflow: hidden;
+            /* Hides overflow for tooltip. */
+            display: inline-flex;
+            /* Uses inline-flex. */
+            align-items: center;
+            /* Vertically centers icon. */
+            justify-content: center;
+            /* Horizontally centers icon. */
+            width: 1.5em;
+            /* Fixed width. */
+            height: 1.5em;
+            /* Fixed height. */
+            border-radius: 50%;
+            /* Makes it circular. */
+            text-decoration: none;
+            /* Removes underline. */
+            color: var(--text-dark);
+            /* Default icon color */
+            transition: transform 0.3s ease, color 0.3s ease;
+            /* Smooth transitions. */
+            outline: none;
+            /* Removes outline on focus. */
+        }
+
+        body.light-mode .footer-social-icons a {
+            color: var(--text-light);
+            /* Light text color in light mode. */
+        }
+
+        /* Specific colors for social icons on hover (reusing existing variables) */
+        .footer-social-icons a[aria-label="HackerRank"]:hover {
+            color: var(--hackerrank-color);
+            /* HackerRank green on hover. */
+        }
+
+        .footer-social-icons a[aria-label="LinkedIn"]:hover {
+            color: var(--linkedin-color);
+            /* LinkedIn blue on hover. */
+        }
+
+        .footer-social-icons a[aria-label="GitHub"]:hover {
+            color: var(--github-color);
+            /* GitHub orange on hover. */
+        }
+
+        .footer-social-icons a[aria-label="YouTube"]:hover {
+            color: var(--youtube-color);
+            /* YouTube red on hover. */
+        }
+
+        .footer-social-icons a:hover {
+            transform: scale(1.1);
+            /* Scales up on hover. */
+        }
+
+        .footer-social-icons a::before {
+            content: attr(aria-label);
+            /* Uses `aria-label` as tooltip content. */
+            position: absolute;
+            /* Positions relative to link. */
+            bottom: -1.5em;
+            /* Position below icon. */
+            left: 50%;
+            /* Horizontally centered. */
+            transform: translateX(-50%);
+            /* Adjusts for centering. */
+            font-size: 0.7em;
+            /* Smaller font size. */
+            white-space: nowrap;
+            /* Prevents text from wrapping. */
+            opacity: 0;
+            /* Initially transparent. */
+            transition: bottom 0.3s ease, opacity 0.3s ease;
+            /* Smooth transitions. */
+            color: var(--text-dark);
+            /* Text color for dark mode. */
+            background-color: var(--bg-secondary);
+            /* Secondary background color. */
+            padding: 0.2em 0.5em;
+            /* Padding for tooltip. */
+            border-radius: 4px;
+            /* Rounded corners. */
+            z-index: 10;
+            /* Ensures tooltip is above other content. */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            /* Subtle shadow. */
+        }
+
+        .footer-social-icons a:hover::before {
+            bottom: -2.5em;
+            /* Moves tooltip further up on hover. */
+            opacity: 1;
+            /* Makes tooltip fully visible on hover. */
+        }
+
+        body.light-mode .footer-social-icons a::before {
+            color: var(--text-light);
+            /* Light text color in light mode. */
+            background-color: var(--bg-secondary);
+            /* Secondary background in light mode. */
+        }
+
+        .footer-copyright {
+            font-size: 0.9rem;
+            /* Font size. */
+            line-height: 1.5;
+            /* Line height. */
+            color: var(--color-secondary);
+            /* Lighter text for copyright */
+            margin: 0;
+            /* Reset margin for flexbox */
+        }
+
+        /* Responsive adjustments for Footer */
+        @media (min-width: 768px) {
+            .footer-content {
+                flex-direction: row;
+                /* Arrange horizontally */
+                justify-content: space-between;
+                /* Push logo left, copyright right */
+                gap: 0;
+                /* Remove gap when in row layout, space-between handles it */
+            }
+
+            .footer-social-icons {
+                /* For centering the social icons between logo and copyright */
+                margin-left: auto;
+                /* Pushes to the right. */
+                margin-right: auto;
+                /* Pushes to the left. */
+            }
+        }
+
+        /* New styles for skills view more button */
+        .skills-view-more-container {
+            text-align: center;
+            /* Centers content. */
+            margin-top: 2rem;
+            /* Space above. */
+            width: 100%;
+            /* Ensure it takes full width of its parent column */
+        }
+
+        .skills-view-more-btn {
+            background-color: transparent;
+            /* Transparent background. */
+            color: var(--accent-color);
+            /* Accent color text. */
+            border: none;
+            /* No border. */
+            padding: 0.5rem 1rem;
+            /* Padding inside. */
+            font-size: 1rem;
+            /* Font size. */
+            cursor: pointer;
+            /* Changes cursor to pointer. */
+            text-decoration: underline;
+            /* Make it look like a link */
+            transition: color 0.3s ease, transform 0.2s ease;
+            /* Smooth transitions. */
+            display: inline-flex;
+            /* Uses inline-flex to align icon and text. */
+            align-items: center;
+            /* Vertically centers content. */
+            gap: 0.5rem;
+            /* Space between icon and text. */
+            outline: none;
+            /* Removes outline on focus. */
+        }
+
+        .skills-view-more-btn:hover {
+            color: #0ab1d1;
+            /* Slightly darker accent on hover */
+            transform: translateY(-2px);
+            /* Lifts slightly on hover. */
+        }
+
+        .skills-view-more-btn i {
+            font-size: 0.9em;
+            /* Icon size. */
+            transition: transform 0.2s ease;
+            /* Smooth transition for icon movement. */
+        }
+
+        .skills-view-more-btn:hover i {
+            transform: translateX(3px);
+            /* Moves icon to the right on hover. */
+        }
+
+        /* Class to hide skills beyond the initial visible count */
+        .skill-card-new.skill-hidden {
+            display: none;
+            /* Hides elements with this class. */
+        }
